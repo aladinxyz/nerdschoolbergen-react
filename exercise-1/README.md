@@ -19,7 +19,7 @@
 
 ### create-react-app
 
-> [create-react-app on GitHub](https://github.com/facebookincubator/create-react-app)
+> For reference and docs: [create-react-app on GitHub](https://github.com/facebookincubator/create-react-app)
 
 :pencil2: Run the following command in a terminal `npm install -g create-react-app`. This will install `create-react-app` globally on your computer.  
 :pencil2: Run `create-react-app nerdschool-app`. This will create the new React application "nerdschool-app" in the folder you're currently in. Specify a full path or make sure to navigate to where you want to create the app.  
