@@ -32,10 +32,10 @@ Oppg 1 - "getting started":
   - React chrome extension
   - (Redux chrome extension oppg 3)
 
-Oppg 2 - "testing":
-- Jest
-- Enzyme/komponent-testing
-- (Snapshot testing)
+Oppg 2 - React component lifecycle, types
+- componentDidMount og alt det der
+- pure functions vs class + React.Component
+- prop types
 
 Oppg 3 - "Redux"
 - Redux dataflyt - forklaring
@@ -60,6 +60,11 @@ Oppg 5 - Kall til www
 - [Exercise 1](exercise-1/)
 - [Exercise 2](exercise-2/)
 - [Exercise 3](exercise-3/)
+
+Oppg 6 - testing:
+- Jest
+- Enzyme/komponent-testing
+- (Snapshot testing)
 
 ## Helpful resources
 - [IntelliJ video tutorials](https://www.jetbrains.com/idea/documentation/)
