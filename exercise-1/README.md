@@ -92,13 +92,17 @@ As discussed briefly earlier, this command hands over control of our configurati
 
 There's a feature in Webpack called _Hot Module Replacement_ (HMR) which, through dark and mysterious magic, enables plugins and frameworks to be notified when certain pieces of the application changes (when you save a file).
 
-For our purposes this means that when we change a React component while `npm start` is running, the tooling will automatically swap out that single component with the newly compiled one you just saved (but not trigger a re-render of components not impacted) without having to touch the browser window. We call this _hot reloading_.
+For our purposes this means that when we change a React component while `npm start` is running, the tooling will automatically swap out that single React component with the newly compiled one you just saved without having to touch the browser window. It's smart enough to not trigger a re-render of any React components not impacted by the change. We call this _hot reloading_.
+
+> We can also enable this feature for Redux so that when a React component is changed, its internal state is transferred to the newly compiled version, giving you virtually no downtime when coding on a component. We won't use this feature in this workshop.
 
 Let's try it out.
 
 :pencil2: Make sure you have `npm start` running and a browser window open at [http://localhost:3000/](http://localhost:3000/). Put this window and your code editor side-by-side so you can see both at the same time.  
 :pencil2: Open `src\App.js` and change the text on line 11 to `Welcome to Nerdschool`. Save the file.  
 :book: Notice how the text in the webpage changed immediately without having to refresh the window.  
+
+As you might've guessed, this rapid feedback loop will soon become very addictive :)
 
 ## 1.4 Chrome extensions
 
