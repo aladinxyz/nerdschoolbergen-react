@@ -1,6 +1,4 @@
-# Exercise 3 -
-
-Show me the code already!
+# Exercise 3 - React
 
 ## In this exercise you will learn to:
 
