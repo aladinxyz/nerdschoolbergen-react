@@ -87,6 +87,10 @@ export default connect(
 
 Now that we have moved initial state to Redux, the next goal is to implement the whole Redux chain: Dispatching an `createTodo` action that is received and handled in the reducer and then added to the list and displayed in the GUI.
 
+Remember this one-way data flow:
+
+![](../images/redux03.png)
+
 The first step, so we can slowly get familiar with Redux, is to dispatch one `createTodo` action for each initial todo we have hard-coded into the reducer so far.
 
 :pencil2: Create a new file `todoActions.js`.  
