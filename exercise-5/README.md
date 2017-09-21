@@ -243,4 +243,11 @@ Pretty powerful debugging tools and extremely useful for understanding how state
 
 :pencil2: Play around with Redux dev tools and the different modes and inspectors. See what it can do and show you.  
 
+Speaking of dev tools, now that our app has grown a bit, let's give _React dev tools_ another try.
+
+![](../images/react-devtools02.png)
+
+:pencil2: Open _React dev tools_ in Chrome. Expand the Component Nodes in the main window a bit. Note how you can see each component as it appears in code, with correct props as they appear in code.  
+:pencil2: Find the `TodoList` in the tree and select it. Inspect the right-hand panel and note that you can inspect the props it receives in detail. This is very useful when you just want to inspect all props the component actually receives at runtime, and what values they are.  
+
 ### [Go to exercise 6 :arrow_right:](../exercise-6/README.md)
