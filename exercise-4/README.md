@@ -245,7 +245,7 @@ export default combineReducers({
 });
 ```
 
-As the name suggests, this is our application's _root reducer_, i.e. the top node of our state-tree. In this todo app we'll only need 1 reducer, but this is where we would connect all reducers we need to maintain our application's state.
+As the name suggests, this is our application's _root reducer_, i.e. the top node of our state-tree. In this todo app we'll only need 1 reducer, but this is where we would connect all reducers we need to maintain our application's state if we had more than one.
 
 Let's create our reducer next.
 
@@ -262,9 +262,9 @@ const todosReducer = (todos = [], action) => {
 export default todosReducer;
 ```
 
-The last piece is to initialize Redux when the app starts (make sure the `createStore` function in `reduxStore` is called on startup).
+The last piece is to initialize Redux when the app starts (i.e. make sure the `createStore` function in `reduxStore` is called on startup).
 
-:pencil2: Open `index.js` and change it's content to:
+:pencil2: Open `index.js` and change its content to:
 
 ```js
 import './index.css';
@@ -276,15 +276,13 @@ import App from './App';
 
 render(
   <Provider store={store}>
-    <div>
-      <App />
-    </div>
+    <App />
   </Provider>,
   document.getElementById('root')
 );
 ```
 
-Importing `store` from `reduxStore` and using the `Provider`-component are the magic tricks here.
+Importing `store` from `reduxStore` and using the `Provider`-component are the magic tricks here. Provider is the main entry point for connecting Redux with React.
 
 :pencil2: Start the dev server again using `npm start`. Open the browser. There should be no warnings or errors in the browser console.  
 
@@ -303,6 +301,8 @@ The left-side panel (red) is a list of all actions that has been dispatched to t
 The right-side panel (blue) displays the state. At the moment we have just defined an empty list of `todos` (remember, in `todosReducer`, we set the default reducer state to an empty array: `todos = []`, and in `rootReducer` we mapped the `todos`-property to the `todosReducer`, thus creating the _node in the state tree_ `todos: []`). Note the `Tree`, `Char`, and `Raw` tabs. We'll just use the `Tree`-view, but others may be interesting with big applications.
 
 The top-right button group (green) toggles between viewing the details of an action (that you select in the left-hand list), showing the state-tree (current, and default view), and inspecting the diff between the old and new state caused by an action.
+
+The buttons at the bottom are for special and advanced use cases and can be safely ignored for now.
 
 We'll explore this extension more as we go along. For now, let's get on with our app.
 
