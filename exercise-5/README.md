@@ -230,16 +230,16 @@ export default connect(
 )(TodoListContainer);
 ```
 
-You should now see the same list of todo items render in the browser with no errors.
+You should now see the same list of todo items render in the browser with no errors. It may not look like much progress in the GUI, but who cares about that, right?! As we all know, the important stuff is what happens in the dev tools :satisfied:
 
 > :exclamation: Remember to remove the default todo items in `todosReducer` and make the default state be an empty array again.
 
-:pencil2: Open _Redux dev tools_ and inspect the left-hand panel. It should now contain 4 `CREATE_TODO` actions.  
-:pencil2: As you select each action (while in the `Diff` mode), notice how the main panel shows how the state changed when that action was received and reduced in the store.  
+:pencil2: Open _Redux dev tools_ and inspect the left-hand panel. It should now contain 4 `CREATE_TODO` actions (or however many actions you dispatched).  
+:pencil2: As you select each action (while in the `Diff` mode), notice how the main panel shows how the state changed when that action was received and reduced in the store. This gets more interesting when we start editing individual properties in exisiting objects and other more complicated operations.  
 :pencil2: Switch to `Action` mode and see that you can inspect the action that was dispatched in detail.  
 :pencil2: Click actions in the left-hand panel and note the small `Jump|Skip` buttons to the right in each list entry. Click _Jump_ and see how the GUI now shows _how the app looks while in the state up until that point_.
 
-Pretty powerful debugging tools and extremely useful for understanding how state changes impacts your application :muscle:
+Pretty powerful debugging tools and extremely useful for understanding how state changes impacts your application :muscle: :heart_eyes:
 
 :pencil2: Play around with Redux dev tools and the different modes and inspectors. See what it can do and show you.  
 
