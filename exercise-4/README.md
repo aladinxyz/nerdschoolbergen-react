@@ -1,11 +1,13 @@
 # Exercise 4 - Redux
 
-## In this exercise you will learn to:
+## In this exercise you will learn:
 
-- Create React components using classes that extends a React base class.
-- Implement the various lifecycle hooks React exposes
-- Create React components using pure functions
-- Use Prop Types to be explicit about what data types and shape your component is expecting as _props_.
+- How Redux works.
+- Install Redux.
+- The difference between _Container_ components that contains wiring and logic, and just plain _Components_ that just render DOM elements to the screen.
+- How to map redux _state_ and _actions_ to React component props.
+- Implement a Redux reducer and an action.
+- Basics of Redux dev tools. 
 
 ## Reminder: Todo app spec
 

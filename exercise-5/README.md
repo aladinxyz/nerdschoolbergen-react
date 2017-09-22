@@ -2,9 +2,10 @@
 
 ## In this exercise you will learn to:
 
-- Redux
-- More Redux
-- All the Reduxes!
+- Implement reducer and action in the Todo app.
+- Connecting redux state and dispatching actions in a container component.
+- Implement a React lifecycle hook.
+- Dispatch actions for creating initial todo items in the lifecycle hook `componentDidMount`.
 
 ## Reminder: Todo app spec
 

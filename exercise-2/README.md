@@ -1,6 +1,6 @@
 # Exercise 2 - React Components
 
-Ok so this "exercise" is a big wall of text. We don't like it anymore than you do, but at some point you gotta learn React, right? So take a deep breath and go through everything in order, step by step. (There's some cat gifs to along the way to boost morale!)
+Ok so this "exercise" is a big wall of text. We don't like it anymore than you do, but at some point you got to learn React, right? So take a deep breath and go through everything in order, step by step. (We hired some cats for morale boost!)
 
 ## In this exercise you will learn about:
 
@@ -65,7 +65,7 @@ function Checkout (props) {
 }
 ```
 
-We do prefer the first version though, as it's less ceremony to write, and `const` promotes immutability which makes our code easier to reason about and trust. A good tip is to use `const` wherever you used to use `var` in JavaScript - for all assignments.
+We do prefer the first version though, as it's less ceremony to write, and `const` promotes immutability which makes our code easier to reason about and trust. A good tip is to use `const` wherever you used to use `var` in JavaScript - for all assignments (functions and variables).
 
 The same component written as a _class component_:
 
@@ -354,7 +354,7 @@ Like most developers, we want to create this app with as little effort as possib
 
 Each component will be in separate files with a `.jsx` extension. I.e. the `AddTodo`-component will be in a file called exactly `AppTodo.jsx`.
 
-Phew! That was too much text in one go! If you made it through without detouring to a newspaper, Reddit, or Facebook, have a cookie (if you brought any)!
+Phew! That was too much text in one go! If you made it through without detouring to the internet, have a cookie (if you brought any)!
 
 ![](../images/cats/cat3.gif)
 

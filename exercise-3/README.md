@@ -2,9 +2,7 @@
 
 ## In this exercise you will learn to:
 
-- Create React components using classes that extends a React base class.
-- Implement the various lifecycle hooks React exposes
-- Create React components using pure functions
+- Create React components using pure functions or pure components.
 - Use Prop Types to be explicit about what data types and shape your component is expecting as _props_.
 
 ## Reminder: Todo app spec
