@@ -21,50 +21,12 @@
 ## Exercises
 This repository contains a set of exercises organized in folders. Each folder contains a `README.md` describing the exercise.
 
-**TEMP**
-Oppg 1 - "getting started":
-- create-react-app
-- rendre app, gjøre en endring
-- hot reloading
-- styling/sass
-- tooling
-  - lint i editor
-  - React chrome extension
-  - (Redux chrome extension oppg 3)
-
-Oppg 2 - React component lifecycle, types
-- componentDidMount og alt det der
-- pure functions vs class + React.Component
-- prop types
-
-Oppg 3 - "Redux"
-- Redux dataflyt - forklaring
-- Actions
-- Reducers
-- Koble sammen React og Redux
-- Containers vs. Components
-- Redux chrome extension
-
-Oppg 4 - Implementere features i app
-- Implementere ny React komponent
-- Implementere nye actions
-- Implementere ny reducer
-- Koble alt sammen
-
-Oppg 5 - Kall til www
-- fetch polyfill
-- thunk middleware
-- action trio
-- Inspisere actions og state i redux dev tools/chrome
-
-- [Exercise 1](exercise-1/)
+- [Exercise 1](exercise-1/) (start here)
 - [Exercise 2](exercise-2/)
 - [Exercise 3](exercise-3/)
-
-Oppg 6 - testing:
-- Jest
-- Enzyme/komponent-testing
-- (Snapshot testing)
+- [Exercise 4](exercise-4/)
+- [Exercise 5](exercise-5/)
+- [Exercise 6](exercise-6/)
 
 ## Helpful resources
 - [IntelliJ video tutorials](https://www.jetbrains.com/idea/documentation/)
