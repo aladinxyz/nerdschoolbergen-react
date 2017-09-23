@@ -2,7 +2,7 @@
 
 {Short summary}
 
-## [Open presentation slides](#)
+## [Open presentation slides](https://docs.google.com/presentation/d/1yUYziXzROl1q3AbBZkiqujzneW9pF279gfTCnhoXGrM/edit?usp=sharing)
 
 ## Focus of this lesson
 {The focus or purpose of this workshop}
