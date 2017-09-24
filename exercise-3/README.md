@@ -135,7 +135,7 @@ Summary.propTypes = {
 
 :pencil2: Go back to App.js and _import_ and use the new `Summary` component:
 
-```
+```jsx
 import Summary from './Summary';
 
 const App = () => (
@@ -144,7 +144,7 @@ const App = () => (
     <Summary todosCount={5} completedTodosCount={2} />
   </div>
 );
-```jsx
+```
 
 ### Styling
 
