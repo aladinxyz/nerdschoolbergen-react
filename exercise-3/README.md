@@ -61,7 +61,7 @@ const App = () => (
 
 The header should now render to the screen.
 
-For reference, here's the `App.jsx` file at this point:
+For reference, here's the `App.js` file at this point:
 
 ```jsx
 import React from 'react';
@@ -304,7 +304,7 @@ export default TodoItem;
 ))}
 ```
 
-:pencil2: Then in `App.jsx`, _import_ and use the `TodoList` component, using some mockdata for now:
+:pencil2: Then in `App.js`, _import_ and use the `TodoList` component, using some mockdata for now:
 
 ```jsx
 import React from 'react';
