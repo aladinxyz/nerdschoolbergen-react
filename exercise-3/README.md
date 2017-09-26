@@ -434,8 +434,8 @@ Apply the `app` class to the outer `<div>` in `App.jsx`.
 
 ```jsx
 const TodoItem = ({ id, description }) => (
-  <div>
-    <div className="todo-item__container">
+  <div className="todo-item__container">
+    <div>
       <input type="checkbox" id={`todoItemCheckbox-${id}`} />
       <label htmlFor={`todoItemCheckbox-${id}`}>{description}</label>
     </div>
