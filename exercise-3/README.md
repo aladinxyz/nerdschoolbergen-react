@@ -421,7 +421,7 @@ Apply the `app` class to the outer `<div>` in `App.jsx`.
 :pencil2: Create `todoItem.css` and add the following:
 
 ```css
-.todo-item {
+.todo-item__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -434,8 +434,8 @@ Apply the `app` class to the outer `<div>` in `App.jsx`.
 
 ```jsx
 const TodoItem = ({ id, description }) => (
-  <div className="todo-item__container">
-    <div>
+  <div>
+    <div className="todo-item__container">
       <input type="checkbox" id={`todoItemCheckbox-${id}`} />
       <label htmlFor={`todoItemCheckbox-${id}`}>{description}</label>
     </div>
