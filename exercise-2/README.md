@@ -288,7 +288,7 @@ const Checkout = props => (
     {!props.isOlderThanMinAgeLimit &&
       <p>You may NOT buy this product</p>
     }
-  </ul>
+  </div>
 );
 ```
 
@@ -303,7 +303,7 @@ const Checkout = props => {
   return (
     <div>
       {message}
-    </ul>
+    </div>
   );
 };
 ```
