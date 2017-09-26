@@ -415,11 +415,13 @@ Before moving on, let's do some css cleanup to make it look more like our wirefr
 }
 ```
 
+Apply the `app` class to the outer `<div>` in `App.jsx`.
+
 :pencil2: Run `npm start` again. There should be no warnings or errors in the browser console, and the content should now be centered on the screen.  
 :pencil2: Create `todoItem.css` and add the following:
 
 ```css
-.todo-item {
+.todo-item__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -432,8 +434,8 @@ Before moving on, let's do some css cleanup to make it look more like our wirefr
 
 ```jsx
 const TodoItem = ({ id, description }) => (
-  <div className="todo-item__container">
-    <div>
+  <div>
+    <div className="todo-item__container">
       <input type="checkbox" id={`todoItemCheckbox-${id}`} />
       <label htmlFor={`todoItemCheckbox-${id}`}>{description}</label>
     </div>

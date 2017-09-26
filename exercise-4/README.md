@@ -74,7 +74,7 @@ function addTodo(description) {
 ```
 
 2. The Redux Store object provides an `dispatch` function. This function _dispatches actions to the store_ (who would've thought!). So now the _store_ receives the `addTodo` action.
-3. The _store_ will have a set of _reducers_ connected to it. An _reducer_ is simply a function that is passed in the store's _current state and the new action we dispatched to the store_. An reducer will look like this:
+3. The _store_ will have a set of _reducers_ connected to it. A _reducer_ is simply a function that is passed in the store's _current state and the new action we dispatched to the store_. A reducer will look like this:
 
 ```js
 const todosReducer = (state = [], action) => {
