@@ -415,6 +415,8 @@ Before moving on, let's do some css cleanup to make it look more like our wirefr
 }
 ```
 
+Apply the `app` class to the outer `<div>` in `App.jsx`.
+
 :pencil2: Run `npm start` again. There should be no warnings or errors in the browser console, and the content should now be centered on the screen.  
 :pencil2: Create `todoItem.css` and add the following:
 
