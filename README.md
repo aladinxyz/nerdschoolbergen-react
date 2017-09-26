@@ -1,17 +1,18 @@
-# React
+# React and Redux
 
-{Short summary}
+This workshop will give a whirlwind tour of React and Redux, demonstrating the core principles and providing a platform to build on.
 
 ## [Open presentation slides](https://docs.google.com/presentation/d/1yUYziXzROl1q3AbBZkiqujzneW9pF279gfTCnhoXGrM/edit?usp=sharing)
 
-## Focus of this lesson
-{The focus or purpose of this workshop}
+## Focus of this workshop
+We will learn about React and build React components using the well-known Todo application as our use-case. After making a few components and making them render to the screen, we'll install Redux. We'll then move our state over to be handled by Redux and inject it back into React.
 
 ## What you need
-- List
-- Of
-- Required
-- Software
+-	Google Chrome
+  - Extension: "React dev tools"
+  - Extension: "Redux dev tools"
+-	An text editor that understands JavaScript and React (Atom, Visual Studio Code, SublimeText, etc). If you're using Atom, you'll need to install the plugin `react` as well.
+-	NodeJS (latest) og npm (latest). Run `node -v` and `npm -v` to check what version you have. Check the latest version at [NodeJS.org](https://nodejs.org/en/) and upgrade if you're out of date.
 
 ## How to get started
 
@@ -28,7 +29,29 @@ This repository contains a set of exercises organized in folders. Each folder co
 - [Exercise 5](exercise-5/)
 - [Exercise 6](exercise-6/)
 
-## Helpful resources
-- [IntelliJ video tutorials](https://www.jetbrains.com/idea/documentation/)
-- [IntelliJ for Eclipse users](https://www.jetbrains.com/help/idea/2016.3/eclipse.html)
-- [IntelliJ testing](https://www.jetbrains.com/help/idea/2016.3/testing.html)
+### Symbols and notation used in exercises
+
+#### Icons with special meaning
+
+:pencil2: - A task you should do  
+:book: - A section of text to read (no tasks, just information).  
+:bulb: - Additional information.  
+:exclamation: - Something important.  
+:question: - Open-ended question for the reader ("What do you think would happen if...")  
+:poop: - Bad practice (don't-do-this)  
+:star: - A bonus task (not required)  
+
+#### Keyboard keys
+
+Will look like this:
+
+<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>
+
+#### Diff blocks
+
+Emphasizes how lines of text should change.
+
+```diff
+- this text was removed
++ and replaced with this text
+```
