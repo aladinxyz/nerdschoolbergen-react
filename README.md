@@ -7,6 +7,8 @@ This workshop will give a whirlwind tour of React and Redux, demonstrating the c
 ## Focus of this workshop
 We will learn about React and build React components using the well-known Todo application as our use-case. After making a few components and making them render to the screen, we'll install Redux. We'll then move our state over to be handled by Redux and inject it back into React.
 
+Time estimate: 4-6 hours
+
 ## What you need
 -	Google Chrome
   - Extension: "React dev tools"
