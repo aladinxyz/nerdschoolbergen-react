@@ -15,33 +15,33 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 **Header**
 
-* There will be an `h1` header for the name of this glorious app
-* There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
+- There will be an `h1` header for the name of this glorious app
+- There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
 
 **Adding a task**
 
-* There will be a textbox where a user can enter the description of a task
-* There will be an "Add" button which will add the task to the list of existing tasks/todos.
+- There will be a textbox where a user can enter the description of a task
+- There will be an "Add" button which will add the task to the list of existing tasks/todos.
 
 **Listing todos**
 
-* There will be a list of todo items. Each todo item will consist of:
-  * A checkbox with the description of the todo
-  * An delete button which will remove the todo item permanently
+- There will be a list of todo items. Each todo item will consist of:
+  - A checkbox with the description of the todo
+  - An delete button which will remove the todo item permanently
 
 ![](../images/todo-app-components.png)
 
-1. `App`. Will contain the header text and the sub-components.
-1. `Summary`. Will contain the total number of tasks and show how many of those are completed.
-1. `AddTodo`. Will contain the textbox and Add-button.
-1. `TodoList`. Will contain the list for all todo items.
-1. `TodoItem`. Will contain a checkbox that marks a task as In Progress or Done, and a Delete button.
+1.  `App`. Will contain the header text and the sub-components.
+1.  `Summary`. Will contain the total number of tasks and show how many of those are completed.
+1.  `AddTodo`. Will contain the textbox and Add-button.
+1.  `TodoList`. Will contain the list for all todo items.
+1.  `TodoItem`. Will contain a checkbox that marks a task as In Progress or Done, and a Delete button.
 
 ## 5.1 - Moving the initial Todo list to Redux
 
 At the moment we create a list of dummy todos in `App.jsx`. The goal now is that Redux will own all state and operations that mutate that state in the application, primarily the list of todos.
 
-:pencil2: The easiest solution for now is to just cut the list from `App.jsx` and paste it in as the default state in `todosReducer`.  
+:pencil2: The easiest solution for now is to just cut the list from `App.jsx` and paste it in as the default state in `todosReducer`.
 
 Now the state exists in Redux but we have yet to connect that state to our React components.
 
@@ -49,37 +49,38 @@ Now the state exists in Redux but we have yet to connect that state to our React
 
 Let's write it out step by step.
 
-1. :pencil2: Import React and the magic glue from Redux to connect the state with the component. We also need our _Component_ that knows how to render out the todo list:
+1.  :pencil2: Import React and the magic glue from Redux to connect the state with the component. We also need our _Component_ that knows how to render out the todo list:
 
 ```jsx
-import React from 'react';
-import { connect } from 'react-redux';
-import TodoList from './TodoList';
+import React from "react";
+import { connect } from "react-redux";
+import TodoList from "./TodoList";
 ```
 
-2. :pencil2: Next, we create the _Container_-component:
+2.  :pencil2: Next, we create the _Container_-component:
 
 ```jsx
-const TodoListContainer = props =>
-  <TodoList {...props} />;
+const TodoListContainer = props => <TodoList {...props} />;
 ```
 
-3. :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects an `todoItems` _prop_ of type array that contains instances of `Todo` class instances.:
+3.  :pencil2: Now for the Redux magic to select what React _props_ we want to map to what Redux _state_. Remember, the `TodoList` expects an `todoItems` _prop_ of type array that contains instances of `Todo` class instances.:
 
 ```js
 const mapStateToProps = state => ({
-  todoItems: state.todos,
+  todoItems: state.todos
 });
 ```
 
-4. Finally, we _connect_ the _TodoListContainer_ and the _mapStateToProps_ together. Note that we just pass `null` as `mapDispatchToProps` because we don't have any functions to connect yet. You can leave the parameter unset/undefined if you want.
+4.  :pencil2: Next, we _connect_ the _TodoListContainer_ and the _mapStateToProps_ together. Note that we just pass `null` as `mapDispatchToProps` because we don't have any functions to connect yet. You can leave the parameter unset/undefined if you want.
 
 ```jsx
 export default connect(
   mapStateToProps,
-  null,
+  null
 )(TodoListContainer);
 ```
+
+5.  :pencil2: Finally, we have to use the _TodoListContainer_ component in our _App_ instead of the _TodoList_ component. Open _App.jsx_ and import and use _TodoListContainer_ instead of _TodoList_. Since the _TodoListContainer_ component now takes care of loading the list of _todoItems_, this prop can be removed. Using this component should be as straight-forward as `<TodoListContainer />`.
 
 :pencil2: Make sure the list of todos still renders in the browser.  
 :pencil2: Keep _Redux dev tools_ open in Chrome. Use the `State` and `Tree` modes and verify that the `todos` node in the state inspector now has the list of todos.
@@ -99,8 +100,8 @@ The first step, so we can slowly get familiar with Redux, is to dispatch one `cr
 
 ```js
 export const createTodo = description => ({
-  type: 'CREATE_TODO',
-  description,
+  type: "CREATE_TODO",
+  description
 });
 ```
 
@@ -143,20 +144,20 @@ The most used hook is `componentDidMount`. Dispatching actions from this method 
 
 Remember that we want _stuff related to how things work_ in Container-components and _stuff related to how things looks_ in plain, dumb, Component-components. That means we want to implement `componentDidMount` in `TodoListContainer`.
 
+Lifecyle methods can only be implemented in React class components and not in pure components (because a pure component is just a plain function which cannot have additional functions (well functions _can_ have additional functions on them in JavaScript, but thats beside the point - in React context we must use a class component)).
+
 :pencil2: Refactor `TodoListContainer` to be a React class component instead of a pure component:
 
 ```js
-import React, { Component } from 'react';
-import TodoList from './TodoList';
+import React, { Component } from "react";
+import TodoList from "./TodoList";
 
 class TodoListContainer extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   render() {
     return <TodoList {...this.props} />;
@@ -188,12 +189,12 @@ Now we'll get this function available as the _prop_ named `createTodoItem` and w
 Full `TodoListContainer` at this point. Please write it out yourself and don't copy & paste:
 
 ```jsx
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import TodoList from './TodoList';
-import { createTodo } from './todoActions';
-import Todo from './Todo';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import TodoList from "./TodoList";
+import { createTodo } from "./todoActions";
+import Todo from "./Todo";
 
 class TodoListContainer extends Component {
   constructor(props) {
@@ -201,10 +202,10 @@ class TodoListContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.createTodoItem('Wake up');
-    this.props.createTodoItem('Do the dishes');
-    this.props.createTodoItem('Fold clothes');
-    this.props.createTodoItem('Browse Reddit');
+    this.props.createTodoItem("Wake up");
+    this.props.createTodoItem("Do the dishes");
+    this.props.createTodoItem("Fold clothes");
+    this.props.createTodoItem("Browse Reddit");
   }
 
   render() {
@@ -214,20 +215,20 @@ class TodoListContainer extends Component {
 
 TodoListContainer.propTypes = {
   todoItems: PropTypes.arrayOf(PropTypes.instanceOf(Todo)).isRequired,
-  createTodoItem: PropTypes.func.isRequired,
+  createTodoItem: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  todoItems: state.todos,
+  todoItems: state.todos
 });
 
 const mapDispatchToProps = dispatch => ({
-  createTodoItem: description => dispatch(createTodo(description)),
+  createTodoItem: description => dispatch(createTodo(description))
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(TodoListContainer);
 ```
 
@@ -242,13 +243,13 @@ You should now see the same list of todo items render in the browser with no err
 
 Pretty powerful debugging tools and extremely useful for understanding how state changes impacts your application :muscle: :heart_eyes:
 
-:pencil2: Play around with Redux dev tools and the different modes and inspectors. See what it can do and show you.  
+:pencil2: Play around with Redux dev tools and the different modes and inspectors. See what it can do and show you.
 
 Speaking of dev tools, now that our app has grown a bit, let's give _React dev tools_ another try.
 
 ![](../images/react-devtools02.png)
 
 :pencil2: Open _React dev tools_ in Chrome. Expand the Component Nodes in the main window a bit. Note how you can see each component as it appears in code, with correct props as they appear in code.  
-:pencil2: Find the `TodoList` in the tree and select it. Inspect the right-hand panel and note that you can inspect the props it receives in detail. This is very useful when you just want to inspect all props the component actually receives at runtime, and what values they are.  
+:pencil2: Find the `TodoList` in the tree and select it. Inspect the right-hand panel and note that you can inspect the props it receives in detail. This is very useful when you just want to inspect all props the component actually receives at runtime, and what values they are.
 
 ### [Go to exercise 6 :arrow_right:](../exercise-6/README.md)
