@@ -149,7 +149,7 @@ We already know what `start` does, and the others should be easy to guess.
 
 ### Test
 
-We already know we have one test in `src/App.test.js`, so we assume running `npm test` will find and run it.
+:book: We already know we have one test in `src/App.test.js`, so we assume running `npm test` will find and run it.
 
 :pencil2: Run `npm test`. It should produce 1 green test passing. The command also entered _watch mode_ which'll re-run relevant tests when source files changes. It can be useful to leave this open in another terminal window while working.
 
@@ -157,20 +157,20 @@ We already know we have one test in `src/App.test.js`, so we assume running `npm
 
 **>>> Do not run :exclamation: :exclamation: <<<**
 
-As discussed briefly earlier, this command hands over control of our configuration files and puts them in our repository. This is not necessarily a bad thing - in a proper project we probably want to do this at some point, but it's not necessary for this workshop.
+:book: As discussed briefly earlier, this command hands over control of our configuration files and puts them in our repository. This is not necessarily a bad thing - in a proper project we probably want to do this at some point, but it's not necessary for this workshop.
 
 ## 1.3 Hot reloading
 
-There's a feature in Webpack called _Hot Module Replacement_ (HMR) which, through dark and mysterious magic, enables plugins and frameworks to be notified when certain pieces of the application changes (when you save a file).
+:book: There's a feature in Webpack called _Hot Module Replacement_ (HMR) which, through dark and mysterious magic, enables plugins and frameworks to be notified when certain pieces of the application code changes (when you save a file).
 
-For our purposes this means that when we change a React component while `npm start` is running, the tooling will automatically swap out that single React component with the newly compiled one you just saved without having to touch the browser window. It's smart enough to not trigger a re-render of any React components not impacted by the change. We call this _hot reloading_.
+For our purposes this means that when we change a React component while `npm start` is running, the tooling will automatically swap out that single React component with the newly compiled one you just saved without having to refresh the page in the browser. It's smart enough to not trigger a re-render of any React components not impacted by the change. We call this _hot reloading_.
 
 > We can also enable this feature for Redux so that when a React component is changed, its internal state is transferred to the newly compiled version, giving you virtually no downtime when coding on a component. We won't use this feature in this workshop.
 
 Let's try it out.
 
 :pencil2: Make sure you have `npm start` running and a browser window open at [http://localhost:3000/](http://localhost:3000/). Put this window and your code editor side-by-side so you can see both at the same time.  
-:pencil2: Open `src\App.js` and change the text on line 11 to `Welcome to Nerdschool`. Save the file.  
+:pencil2: Open `src/App.js` and change the text on line 11 to `Welcome to Nerdschool`. Save the file.  
 :book: Notice how the text in the webpage changed immediately without having to refresh the window.  
 
 As you might've guessed, this rapid feedback loop will soon become very addictive :)
