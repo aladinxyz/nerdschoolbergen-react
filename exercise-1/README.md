@@ -141,13 +141,15 @@ We already know what `start` does, and the others should be easy to guess.
 
 :pencil2: Run `npm run build`. After a few seconds, it says a bundle is compiled and ready inside the `/build` folder. This means Webpack took all of our files and bundled and minimized them into one js and one css file, ready to be deployed to production.
 
-:pencil2: Run `npx serve -s build` and open [http://localhost:5000/](http://localhost:5000/). This command starts a small web server called [`serve`](https://github.com/zeit/serve#readme) which _serves_ your built production build. Stop the server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the terminal window.
+:pencil2: Run `npx serve -s build` and open [http://localhost:5000/](http://localhost:5000/). This command starts a small web server called [`serve`](https://github.com/zeit/serve#readme) which _serves_ your built production build.
 
-For the rest of the workshop we'll use `npm start` to serve our source files as-is through webpack dev server. This makes it easier to debug and inspect our code in the browser dev tools and other development features. You can stop serving the bundle and make sure you're using port 3000 and not 5000: [http://localhost:3000/](http://localhost:3000/).
+:book: For the rest of the workshop we'll use `npm start` to serve our source files as-is through webpack dev server. This makes it easier to debug and inspect our code in the browser dev tools and other development features.
+
+:pencil2: You can stop serving the bundle by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the terminal window. In your browser, make sure you're using port 3000 (the dev server) and not 5000: [http://localhost:3000/](http://localhost:3000/).
 
 ### Test
 
-We already know we have one test in `src\App.test.js`, so we assume running `npm test` will find and run it.
+We already know we have one test in `src/App.test.js`, so we assume running `npm test` will find and run it.
 
 :pencil2: Run `npm test`. It should produce 1 green test passing. The command also entered _watch mode_ which'll re-run relevant tests when source files changes. It can be useful to leave this open in another terminal window while working.
 
