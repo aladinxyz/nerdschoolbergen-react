@@ -170,7 +170,7 @@ For our purposes this means that when we change a React component while `npm sta
 Let's try it out.
 
 :pencil2: Make sure you have `npm start` running and a browser window open at [http://localhost:3000/](http://localhost:3000/). Put this window and your code editor side-by-side so you can see both at the same time.  
-:pencil2: Open `src/App.js` and change the text on line 11 to `Welcome to Nerdschool`. Save the file.  
+:pencil2: Open `src/App.js` and insert a new line at line 11 (over the `<p>` tag) with the following code: `<h1>Welcome to nerdschool</h1>`. Save the file.  
 :book: Notice how the text in the webpage changed immediately without having to refresh the window.  
 
 As you might've guessed, this rapid feedback loop will soon become very addictive :)
