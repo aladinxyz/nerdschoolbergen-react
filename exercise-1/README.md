@@ -177,7 +177,7 @@ As you might've guessed, this rapid feedback loop will soon become very addictiv
 
 ## 1.4 Chrome extensions
 
-### React dev tools
+### React Developer Tools
 
 > [Download here](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 
@@ -191,7 +191,7 @@ This is like any browser's _Elements_ tab, but for React elements.
 :book: The target icon (green) enables you to point your cursor on an element on the screen which'll expand down to, and select, that React component in the tree.  
 :book: Note that this DOM-tree lists the React nodes as they are named in your source code (pink).
 
-### Redux dev tools
+### Redux Dev Tools
 
 > [Download here](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
