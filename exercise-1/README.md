@@ -3,76 +3,145 @@
 ## In this exercise you will learn to:
 
 - Create a new React app using the scaffolding tool `create-react-app`.
-- Learn about "hot reloading" aka how we get the browser to reload the changed React components we're working on as we change them.
-- Incorporate styling (sass).
+- Learn about "hot reloading" aka how we get the browser to automatically reload code changes on the fly (without reloading the page).
+- Incorporate styling (Sass).
 - Get linting in your editor.
 
-## Required software and tools for this exercise
+## Required software and tools
 
 - Google Chrome.
 - A modern text editor that understands JavaScript and React. For example Atom or Visual Studio Code.
-- [NodeJS and npm](https://nodejs.org/en/) installed on your machine. You should have NodeJS greater than 8.0.0 (`node -v`) and npm greater than 5.0.0 (`npm -v`).
+- [NodeJS and npm](https://nodejs.org/en/) installed on your machine. **You need to have NodeJS 8.10.0 or later (`node -v`) and npm 5.2.0 or later (`npm -v`) installed.**
 
 ## 1.1 Creating a new React application
 
-:book: Creating a new application from scratch can be a surprisingly long and tedious task these days. A typical React application uses [Webpack](https://webpack.js.org/) as the main build tool and pipeline. We're not going to set up Webpack ourselves in this workshop, but it'll be running things behind the scenes for us. Instead, we're going to use a scaffolding tool called `create-react-app` which will generate a project for us, and manage all configuration files for us in a different folder on your machine. This means you won't see the configuration files that belong to your app. In a real-world application of some size you'll probably want control over these configuration files - and Webpack. In that case you can either set everything up yourself from scratch or scaffold a project using `create-react-app` and _eject_, meaning it'll copy all configuration files to your codebase and give you full control, but you'll loose the possibility to use `create-react-app` for managing your project from then on. Today, we'll not use this option.
+:book: Creating a new React application from scratch can be a surprisingly long and tedious task these days. A typical React application uses [Webpack](https://webpack.js.org/) as the main build tool and pipeline.
+
+:book: Instead of setting up Webpack from scratch, we're going to use a scaffolding tool called [`create-react-app`](https://facebook.github.io/create-react-app/) which will generate a Webpack project for us, and manage all configuration files for us in a different folder on your machine. This means you won't see the configuration files that belong to your app.
+
+:bulb: In a real-world application of some size you'll probably want control over these configuration files - and Webpack. In that case you can either set everything up yourself from scratch or scaffold a project using `create-react-app` and _eject_ to take control over the configuration files and dependencies.
 
 ### create-react-app
 
 > For reference and docs: [create-react-app on GitHub](https://github.com/facebookincubator/create-react-app)
 
-:pencil2: Run the following command in a terminal `npm install -g create-react-app`. This will install `create-react-app` globally on your computer.  
-:pencil2: Run `create-react-app nerdschool-app`. This will create the new React application "nerdschool-app" in the folder you're currently in. Specify a full path or make sure to navigate to where you want to create the app.  
-:pencil2: Run `npm start` to start the app in your browser. A new browser windows should start showing the default page.  
+:pencil2: Open up a bash terminal window and create a folder in your home folder called `react-projects`.
+
+:bulb: If you are on Windows, use [Git Bash](https://gitforwindows.org/).
+
+
+```bash
+$ mkdir ~/react-projects
+$ cd ~/react-projects
+```
+
+:pencil2: Run `npx create-react-app nerdschool-app`. This will create the new React application "nerdschool-app" in the `react-projects`-folder:
+
+(`npx` is a [package runner tool that comes with >npm 5.2+](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b).)
+```bash
+$ npx create-react-app nerdschool-app
+npx: installed 63 in 5.715s
+
+Creating a new React app in /Users/nerdschool/react-projects/nerdschool-app.
+
+Installing packages. This might take a couple of minutes.
+Installing react, react-dom, and react-scripts...
+...
+Success! Created nerdschool-app at /Users/nerdschool/react-projects/nerdschool-app
+```
+
+:pencil2: Run `npm start` from the `nerdschool-app` folder to start the app in your browser:
+
+```bash
+$ cd nerdschool-app
+$ npm start
+Compiled successfully!
+
+You can now view nerdschool-app in the browser.
+
+  Local:            http://localhost:3000/
+  On Your Network:  http://192.168.1.129:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+```
+
+ A new browser window should start showing the default page:
 
 ![](../images/default-page.png)
 
+:bulb: You can stop the development server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the terminal window.
+
 ### :book: Inspecting the generated files and folders
 
-A simple folder structure was created:
+:book: Open the `nerdschool-app` folder in your code editor.
 
-```
-\node_modules
-\public
---\favicon.ico
---\index.html
---\manifest.json
-\src
---\App.css
---\App.js
---\App.test.js
---\index.css
---\index.js
---\logo.svg
---\registerServiceWorker.js
-package.json
-package-lock.json
+A simple folder structure was created by `create-react-app` inside the `nerdschool-app` folder:
+
+```bash
+├── README.md
+├── node_modules
+│   ├── ...
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    └── serviceWorker.js
 ```
 
-- `\public` this folder contains files needed for running your app, but not necessarily something you want to change or modify as part of your other source code files. (`manifest.json` is a metadata file related to running your app as a [progressive web app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#progressive-web-app-metadata)).
-- `\src\index.js` - This is the main entry point for your app. As you can see, it'll look for a `div` named "root" which'll be the top-level DOM node for your React app. You'll find this `div` in `\public\index.html`. Also note that this file _imports_ `App` and passes in to `ReactDOM.render(<App />)`.
-- `\src\App.js` - This is currently the top-level React element in your app. Its content should be very straight-forward. Note that the html `class` attribute is called `className` in React. Also note that this component is a `class` that _extends_ the React `Component` base class.
-- `\src\App.test.js` - These are the tests for `App.js`. In React apps it's common to put test files either next to the source file (in the same folder), or in a `__tests__` sub-folder next to the source file. Any file ending with `.test.js` or `.spec.js` will be identified as a test file by **Jest**, which is our current test runner and test framework.
+- `/public` - This folder contains files needed for running your app, but not necessarily something you want to change or modify as part of your other source code files. (`manifest.json` is a metadata file related to running your app as a [progressive web app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#progressive-web-app-metadata)).
+- `/src/index.js` - This is the main entry point for your app. As you can see in the code, it'll look for a `div` named "root" which'll be the top-level DOM node for your React app. You'll find this `div` in `/public/index.html`. Also note that this file _imports_ the `App` React component from `/src/app.js` and passes it in to `ReactDOM.render(<App />)`.
+- `/src/App.js` - This is currently the top-level React element in your app. Its content should be very straight-forward. Note that the html `class` attribute is called `className` in React. Also note that this component is a `class` that _extends_ the React `Component` base class.
+- `/src/App.test.js` - These are the tests for `App.js`. In React apps it's common to put test files either next to the source file (in the same folder), or in a `__tests__` sub-folder next to the source file. Any file ending with `.test.js` or `.spec.js` will be identified as a test file by **Jest**, which is our current test runner and test framework.
 
 ### Cleaning up stuff we won't use
 
-The downside to most code generators is that they create stuff we don't need or don't understand. In this case we get some stuff related to progressive web apps which we won't use.
+:book: The downside to most code generators is that often they create stuff we don't need or don't understand. In this case we get some stuff related to progressive web apps which we won't use.
 
-:pencil2: Delete `src\registerServiceWorker.js`.  
-:pencil2: Delete `public\manifest.json`.  
-:pencil2: Open `src\index.js` and remove the lines `import registerServiceWorker from './registerServiceWorker';` and `registerServiceWorker();`.
+:pencil2: Delete `src/serviceWorker.js`.  
+:pencil2: Delete `public/manifest.json`.  
+:pencil2: Open `src/index.js` and remove the following lines:
+
+```diff
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+-import * as serviceWorker from './serviceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+-
+-// If you want your app to work offline and load faster, you can change
+-// unregister() to register() below. Note this comes with some pitfalls.
+-// Learn more about service workers: http://bit.ly/CRA-PWA
+-serviceWorker.unregister();
+```
 
 ## 1.2 Running tests and building
 
-By inspecting `package.json` we can see 4 `scripts`: `start`, `build`, `test`, `eject`.
+By inspecting `package.json` we can see four `scripts`:
 
-We already know what `start` does, and the others should not be surprising.
+- `start`
+- `build`
+- `test`
+- `eject`
+
+We already know what `start` does, and the others should be easy to guess.
 
 ### Build
 
-:pencil2: Run `npm run build`. After a few seconds, it says a bundle is compiled and ready. This means Webpack took all of our files and bundled and minimized them into one js and one css file. It also suggests a way to run the bundle: `serve -s build`. You probably don't have the `serve` package installed yet so let's do that next.   
-:pencil2: Run `npm install -g serve`. This installs _serve_ globally on your computer.  
-:pencil2: Run `serve -s build` and open [http://localhost:5000/](http://localhost:5000/). This serves your built production build.
+:pencil2: Run `npm run build`. After a few seconds, it says a bundle is compiled and ready inside the `/build` folder. This means Webpack took all of our files and bundled and minimized them into one js and one css file, ready to be deployed to production.
+
+:pencil2: Run `npx serve -s build` and open [http://localhost:5000/](http://localhost:5000/). This command starts a small web server called [`serve`](https://github.com/zeit/serve#readme) which _serves_ your built production build. Stop the server by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> in the terminal window.
 
 For the rest of the workshop we'll use `npm start` to serve our source files as-is through webpack dev server. This makes it easier to debug and inspect our code in the browser dev tools and other development features. You can stop serving the bundle and make sure you're using port 3000 and not 5000: [http://localhost:3000/](http://localhost:3000/).
 
