@@ -108,7 +108,7 @@ Found a precise enactment of what it feels like getting through this exercise:
 
 #### Internal state
 
-Class components can have _internal state_ in addition to having props sent in. Knowing when to use _internal state_ vs _having state passed into the component from the outside via props_ (for example via state containers such as Redux, which we're going to use) is one of the challenges when you're new to React.
+:book: Class components can have _internal state_ in addition to having props sent in. Knowing when to use _internal state_ vs _having state passed into the component from the outside via props_ (for example via state containers such as Redux, which we're going to use) is one of the challenges when you're new to React.
 
 Here's an example where we have the state of a counter as internal state:
 
@@ -150,7 +150,7 @@ class Checkout extends Component {
 
 #### Prop Types
 
-Prop Types are React's "poor man's type checking".
+:book: Prop Types are React's "poor man's type checking".
 
 Let's say you have the following component:
 
@@ -262,7 +262,7 @@ const TodoList = ({
 
 ### JSX in a hurry
 
-We'll touch on more JSX goodies as we go along, but here's a few things you'll need to know:
+:book: We'll touch on more JSX goodies as we go along, but here's a few things you'll need to know:
 
 - We can write plain JavaScript by wrapping it in `{ }` inside of any jsx code block. We use this quite frequently to do conditional checks and write data to the screen.
 - We iterate over lists like this:
@@ -346,7 +346,7 @@ Like most developers, we want to create this app with as little effort as possib
 
 (No need to create all components right now, we'll get to that).
 
-1. `App`. Will contain the header text and the sub-components.
+1. `App`. Will contain the header text and the sub-components. Represents the _root component_ of our app.
 1. `Summary`. Will contain the total number of tasks and show how many of those are completed.
 1. `AddTodo`. Will contain the textbox and Add-button.
 1. `TodoList`. Will contain the list for all todo items.
