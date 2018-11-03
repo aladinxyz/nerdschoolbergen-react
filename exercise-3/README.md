@@ -11,21 +11,21 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 ![](../images/todo-app.png)
 
-**Header**
+### Header
 
-* There will be an `h1` header for the name of this glorious app
-* There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
+- There will be an `h1` header for the name of this glorious app
+- There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
 
-**Adding a task**
+### Adding a task
 
-* There will be a textbox where a user can enter the description of a task
-* There will be an "Add" button which will add the task to the list of existing tasks/todos.
+- There will be a textbox where a user can enter the description of a task
+- There will be an "Add" button which will add the task to the list of existing tasks/todos.
 
-**Listing todos**
+### Listing todos
 
-* There will be a list of todo items. Each todo item will consist of:
-  * A checkbox with the description of the todo
-  * An delete button which will remove the todo item permanently
+- There will be a list of todo items. Each todo item will consist of:
+  - A checkbox with the description of the todo
+  - An delete button which will remove the todo item permanently
 
 ![](../images/todo-app-components.png)
 
@@ -41,7 +41,7 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 ## 3.1 - The `App` component
 
-Now that we have a basic understanding of what we want to make, let's dive right in and get started on the `App` component.
+:book: Now that we have a basic understanding of what we want to make, let's dive right in and get started on the `App` component.
 
 :pencil2: Open `App.js` and remove all of its content.  
 :pencil2: All React components must import React in order to run, so start by adding the line `import React from 'react'`.  
@@ -55,7 +55,7 @@ const App = () => (
 );
 ```
 
-> Unless we know for sure we'll need lifecycle hooks, we tend to start new components as pure components and convert to class component if it turns out we need more complexity.
+> :bulb: Unless we know for sure we'll need lifecycle hooks, we tend to start new components as pure components and convert to class component if it turns out we need more complexity.
 
 :pencil2: Then we need to finish up by exporting the component out of the module: `export default App`;
 
@@ -150,9 +150,10 @@ const App = () => (
 
 One of the cool things about React is how isolated we can make our components. From the outside we only need to worry about sending in the required props. The internals of the component will handle all other details, such as loading styling. Let's implement the two CSS classes we defined above to demonstrate this.
 
-Because of how create-react-app is set-up, we'll use plain CSS today to not spend too much time getting SASS transpiling up and running.
+We'll use plain CSS today for simplicity.
 
-> You can [follow these instructions](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc) to get SASS transpilation working, but we don't have time in this workshop. In a real-world app we'd set this up using Webpack loaders.
+> :bulb: To learn more about setting up Sass, see the [Adding a Sass Stylesheet
+](https://facebook.github.io/create-react-app/docs/adding-a-sass-stylesheet) section of the `create-react-app` documentation.
 
 :pencil2: Add the new CSS file `summary.css`.  
 :pencil2: Define the two classes:
@@ -345,13 +346,13 @@ The problem is on this line in `TodoList.jsx`: `<TodoItem description={todoItem.
 ))}
 ```
 
-:pencil2: Head back to the browser. There should be no warnings or errors in the console now :tada:
+:pencil2: Head back to the browser. There should be no warnings or errors in the console now. :tada:
 
-But wait! If you try to select the todo item checkboxes, you'll see that we only ever select the first one. Another bug.
+But wait! If you try to select the todo items by clicking the labels, you'll see that we only ever select the first one. Another bug.
 
 The problem here is in `TodoItem.jsx` regarding the input's `id` and the label's `htmlFor` props. These values must match, which they do, but they're the same values for all inputs and labels in the todo list. We must also make these unique. To solve this, we also need the `todoItem.id` value in this component.
 
-:pencil2: Add the `id` prop:
+:pencil2: Add the `id` prop and prop type:
 
 ```
 const TodoItem = ({ id, description }) => (
