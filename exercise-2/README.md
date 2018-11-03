@@ -1,6 +1,6 @@
 # Exercise 2 - React Components
 
-Ok so this "exercise" is a big wall of text. We don't like it anymore than you do, but at some point you got to learn React, right? So take a deep breath and go through everything in order, step by step. (We hired some cats for morale boost!)
+:book: Ok, so this "exercise" is a big wall of text. We don't like it anymore than you do, but at some point you got to learn React, right? So take a deep breath and go through everything in order, step by step. (We hired some cats for morale boost!)
 
 ## In this exercise you will learn about:
 
@@ -10,7 +10,7 @@ Ok so this "exercise" is a big wall of text. We don't like it anymore than you d
 
 ## 2.1 - React components
 
-There are two ways to define a React component:
+:book: There are two ways to define a React component:
 
 a) As a class that extends the `Component` base class from React (going to call these _class components_ from now on).  
 b) As a pure function that take _props_ as input parameter and returns a view (going to call these _pure components_ from now on).
@@ -26,24 +26,24 @@ There are some major differences between the two approaches:
 
 ### Components in code
 
-In the simplest terms, _a React component is a function which takes data as its input parameter and returns a view_. The most common way to write a _view_ in React is using `JSX` syntax, which _looks_ like HTML but really isn't. In most cases you can write HTML as you know it and React will scream in your face when you mess up and have to adjust to JSX syntax.
+:book: In the simplest terms, _a React component is a function which takes data as its input parameter and returns a view_. The most common way to write a _view_ in React is using `JSX` syntax, which _looks_ like HTML but really isn't. In most cases you can write HTML as you know it and React will scream in your face when you mess up and have to adjust to JSX syntax.
 
-> JSX is just a standard - a specification. It's not part of the React framework. We could write markup in JSX in other SPA (Single Page Application) frameworks as well, but it's most commonly used with React.
+> :bulb: JSX is just a standard - a specification. It's not part of the React framework. We could write markup in JSX in other SPA (Single Page Application) frameworks as well, but it's most commonly used with React.
 
 #### Notable differences between HTML and JSX
 
-* `className` instead of `class` to specify CSS classes.
-* All items in a list must have a `key` prop which must be unique.
-* Minor differences such as the HTML `<label for="id" />` being `<label htmlFor="id" />` in JSX.
-* Callback functions for events such as clicking a button are always in the form of `onFooEvent`, i.e.: `onClick`, `onMouseLeave`, etc.
+- `className` instead of `class` to specify CSS classes.
+- All items in a list must have a `key` prop which must be unique.
+- Minor differences such as the HTML `<label for="id" />` being `<label htmlFor="id" />` in JSX.
+- Callback functions for events such as clicking a button are always in the form of `onFooEvent`, i.e.: `onClick`, `onMouseLeave`, etc.
 
-> JSX is just syntax sugar on top of React's DOM API. In plain JavaScript you can write `document.createElement(name, children)` to create HTML elements in code. React elements are really written as `React.createElement(name, children)`, but because this is tedious and complicated to write, JSX abstracts this away and we can write `<div />` instead of `React.createElement('div', null)`.
+> :bulb: JSX is just syntax sugar on top of React's DOM API. In plain JavaScript you can write `document.createElement(name, children)` to create HTML elements in code. React elements are really written as `React.createElement(name, children)`, but because this is tedious and complicated to write, JSX abstracts this away and we can write `<div />` instead of `React.createElement('div', null)`.
 
-> You might need a plugin to your text editor/IDE for it to understand and format JSX correctly.
+> :bulb: You might need a plugin/extension for your text editor/IDE for it to understand and format JSX correctly.
 
 #### JSX examples
 
-A simple React component, written as a pure component may look like this:
+:book: A simple React component, written as a pure component may look like this:
 
 ```jsx
 const Checkout = props => (
@@ -53,7 +53,7 @@ const Checkout = props => (
 );
 ```
 
-If the above function syntax looks funny to you, here's a more familiar version of the same:
+:book: If the above function syntax looks funny to you, here's a more familiar version of the same:
 
 ```jsx
 function Checkout (props) {
@@ -65,7 +65,7 @@ function Checkout (props) {
 }
 ```
 
-We do prefer the first version though, as it's less ceremony to write, and `const` promotes immutability which makes our code easier to reason about and trust. A good tip is to use `const` wherever you used to use `var` in JavaScript - for all assignments (functions and variables).
+:book: We do prefer the first version though, as it's less ceremony to write, and `const` promotes immutability which makes our code easier to reason about and trust. A good tip is to use `const` wherever you used to use `var` in JavaScript - for all assignments (functions and variables).
 
 The same component written as a _class component_:
 
@@ -81,9 +81,9 @@ class Checkout extends Component {
 }
 ```
 
-* We receive `props` as a parameter in both cases. When written as a pure component, we receive props as the first (and only) function argument. When written as a class component, we get props as a object on `this.props`.
+- We receive `props` as a parameter in both cases. When written as a pure component, we receive props as the first (and only) function argument. When written as a class component, we get props as a object on `this.props`.
 
-Props are the values/data sent in to our component from the parent component. For example here we pass `totalAmount` and `address` as props to our inner _Summary_ component:
+:book: Props are the values/data sent in to our component from the parent component. For example here we pass `totalAmount` and `address` as props to our inner _Summary_ component:
 
 ```jsx
 class Checkout extends Component {
@@ -98,7 +98,7 @@ class Checkout extends Component {
 
 The `Summary` component will now be able to read these values from `this.props.totalAmount` and `this.props.address`.
 
-> The `render()` method is a mandatory convention. All React class components _must_ have a `render()` method. If your component does not render a view (which is sometimes the case), render can return `null`, but it must be implemented and return something. When writing pure components, the whole component is itself the render function and it must return a JSX view (or null).
+> :bulb: The `render()` method is a mandatory convention. All React class components _must_ have a `render()` method. If your component does not render a view (which is sometimes the case), render can return `null`, but it must be implemented and return something. When writing pure components, the whole component is itself the render function and it must return a JSX view (or null).
 
 Still with us? Sure hope so!
 
@@ -142,11 +142,11 @@ class Checkout extends Component {
 }
 ```
 
-* Note there is some boilerplate ceremony necessary in the constructor now.
-* The initial `count` state is set in the constructor.
-* We are only ever allowed to change the state by using React's `this.setState(newState)` method. If we did another `this.state = { count: this.state + 1 }` in the `incrementCounter` method we'd get an error.
-* In the `render()` method we access the `count` value by using `this.state.count`.
-* We hook the button up to our `incrementCounter` method when it's clicked.
+- Note there is some boilerplate ceremony necessary in the constructor now.
+- The initial `count` state is set in the constructor.
+- We are only ever allowed to change the state by using React's `this.setState(newState)` method. If we did another `this.state = { count: this.state + 1 }` in the `incrementCounter` method we'd get an error.
+- In the `render()` method we access the `count` value by using `this.state.count`.
+- We hook the button up to our `incrementCounter` method when it's clicked.
 
 #### Prop Types
 
@@ -264,8 +264,8 @@ const TodoList = ({
 
 We'll touch on more JSX goodies as we go along, but here's a few things you'll need to know:
 
-* We can write plain JavaScript by wrapping it in `{ }` inside of any jsx code block. We use this quite frequently to do conditional checks and write data to the screen.
-* We iterate over lists like this:
+- We can write plain JavaScript by wrapping it in `{ }` inside of any jsx code block. We use this quite frequently to do conditional checks and write data to the screen.
+- We iterate over lists like this:
 
 ```jsx
 const TodoList = props => (
@@ -277,7 +277,7 @@ const TodoList = props => (
 );
 ```
 
-* We do conditional checks like this:
+- We do conditional checks like this:
 
 ```jsx
 const Checkout = props => (
@@ -316,21 +316,21 @@ In this workshop we'll make a simple Todo application.
 
 ![](../images/todo-app.png)
 
-**Header**
+### Header
 
-* There will be an `h1` header for the name of this glorious app
-* There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
+- There will be an `h1` header for the name of this glorious app
+- There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
 
-**Adding a task**
+### Adding a task
 
-* There will be a textbox where a user can enter the description of a task
-* There will be an "Add" button which will add the task to the list of existing tasks/todos.
+- There will be a textbox where a user can enter the description of a task
+- There will be an "Add" button which will add the task to the list of existing tasks/todos.
 
-**Listing todos**
+### Listing todos
 
-* There will be a list of todo items. Each todo item will consist of:
-  * A checkbox with the description of the todo
-  * An delete button which will remove the todo item permanently
+- There will be a list of todo items. Each todo item will consist of:
+  - A checkbox with the description of the todo
+  - An delete button which will remove the todo item permanently
 
 ### Planning React components
 
