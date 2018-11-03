@@ -3,7 +3,7 @@
 ## In this exercise you will learn:
 
 - How Redux works.
-- Install Redux.
+- How to install Redux.
 - The difference between _Container_ components that contains wiring and logic, and just plain _Components_ that just render DOM elements to the screen.
 - How to map redux _state_ and _actions_ to React component props.
 - Implement a Redux reducer and an action.
@@ -15,21 +15,21 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 ![](../images/todo-app.png)
 
-**Header**
+### Header
 
-* There will be an `h1` header for the name of this glorious app
-* There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
+- There will be an `h1` header for the name of this glorious app
+- There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
 
-**Adding a task**
+### Adding a task
 
-* There will be a textbox where a user can enter the description of a task
-* There will be an "Add" button which will add the task to the list of existing tasks/todos.
+- There will be a textbox where a user can enter the description of a task
+- There will be an "Add" button which will add the task to the list of existing tasks/todos.
 
-**Listing todos**
+### Listing todos
 
-* There will be a list of todo items. Each todo item will consist of:
-  * A checkbox with the description of the todo
-  * An delete button which will remove the todo item permanently
+- There will be a list of todo items. Each todo item will consist of:
+  - A checkbox with the description of the todo
+  - An delete button which will remove the todo item permanently
 
 ![](../images/todo-app-components.png)
 
@@ -55,7 +55,7 @@ Redux is a _state container_. All state that needs to be shared between componen
 
 Let's say we have an _Add_-button to add a new todo item. Adding this new todo item to the list of todo items would look like this:
 
-1. The function provided to the button's `onClick` handler would call an _action_. An action is just an object that has a identifiable `type` and whatever data you need to mutate the state based on that action. For adding a new todo item, we'll need an action that looks like this:
+1. The function provided to the button's `onClick` handler would trigger an _action_. An action is just an object that has a identifiable `type` and whatever data you need to mutate the state based on that action. For adding a new todo item, we'll need an action that looks like this:
 
 ```js
 const addTodo = description => ({
