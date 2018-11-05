@@ -55,7 +55,7 @@ const App = () => (
 );
 ```
 
-> :bulb: Unless we know for sure we'll need lifecycle hooks, we tend to start new components as pure components and convert to class component if it turns out we need more complexity.
+> :bulb: Unless we know for sure we'll need lifecycle methods, we tend to start new components as pure components and convert to class component if it turns out we need more complexity.
 
 :pencil2: Then we need to finish up by exporting the component out of the module: `export default App`;
 
