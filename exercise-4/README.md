@@ -93,7 +93,7 @@ A few things to note:
 - The switch cases can return whatever we want. It's up to us to define _how the action changes the state_.
 - Since this is simply a function that takes the old state, an action, and returns the new state, it's very easy to test, reason about, and debug.
 - There should be absolutely no side-effects in an reducer (i.e no network calls, no filesystem calls, no DOM event triggering, etc). All side effects should be in _actions_. Reducers simply act upon the result of actions and sets a new state based on it.
-- Reducers should never mutate the existing state object that's passed in as parameter. Instead, it should create and clone new state in order to define and return the new state.
+- Reducers should _never_ mutate the existing state object that's passed in as parameter. Instead, it should create and clone new state in order to define and return the new state.
 - (We would of course put the action types such as `'ADD_TODO'` in constants so they can be reused and refactored safely across actions and reducers).
 
 An implemented reducer for handling new todo items could look like this:
@@ -198,7 +198,16 @@ This way we don't have to specify PropTypes validation, and we reduce boilerplat
 
 `create-react-app` does not include Redux by default so we'll need to install it.
 
-:pencil2: Stop the web server running the todo app and install the following packages: `npm install redux react-redux redux-thunk`. We'll explain _redux-thunk_ later.  
+:pencil2: Stop the web server running the todo app and install `redux`, `react-redux` and `redux-thunk`: 
+
+```bash
+$ npm install redux react-redux redux-thunk
+```
+
+- `redux` is the main Redux library.
+- `react-redux` is a helper library providing glue between React and Redux.
+- `redux-thunk` is a middleware library used for creating _async actions_. We'll explain this one later.
+
 :pencil2: Create the new file `reduxStore.js` and copy & paste the following content:
 
 ```js
@@ -234,7 +243,7 @@ const store = createStore(
 export default store;
 ```
 
-> Feel free to explore Redux more (such as its various middleware), but Unfortunately we don't have time to explain the details at this time. For now, just know that this is where we create the Redux store and all Redux-related infrastructure.
+> :bulb: Feel free to explore Redux more (such as its various middleware), but unfortunately we don't have time to explain the details at this time. For now, just know that this is where we create the Redux store and all Redux-related infrastructure.
 
 :pencil2: Create the new file `rootReducer.js` and enter the following content:
 
@@ -247,7 +256,7 @@ export default combineReducers({
 });
 ```
 
-As the name suggests, this is our application's _root reducer_, i.e. the top node of our state-tree. In this todo app we'll only need 1 reducer, but this is where we would connect all reducers we need to maintain our application's state if we had more than one.
+As the name suggests, this is our application's _root reducer_, i.e. the top node of our state-tree. In this todo app we'll only need one reducer, but this is where we would connect all reducers we need to maintain our application's state if we had more than one.
 
 Let's create our reducer next.
 
