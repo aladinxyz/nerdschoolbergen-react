@@ -4,8 +4,8 @@
 
 - Implement reducer and action in the Todo app.
 - Connecting redux state and dispatching actions in a container component.
-- Implement a React lifecycle hook.
-- Dispatch actions for creating initial todo items in the lifecycle hook `componentDidMount`.
+- Implement a React lifecycle method.
+- Dispatch actions for creating initial todo items in the lifecycle method `componentDidMount`.
 
 ## Reminder: Todo app spec
 
@@ -13,17 +13,17 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 ![](../images/todo-app.png)
 
-**Header**
+### Header
 
 - There will be an `h1` header for the name of this glorious app
 - There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
 
-**Adding a task**
+### Adding a task
 
 - There will be a textbox where a user can enter the description of a task
 - There will be an "Add" button which will add the task to the list of existing tasks/todos.
 
-**Listing todos**
+### Listing todos
 
 - There will be a list of todo items. Each todo item will consist of:
   - A checkbox with the description of the todo
@@ -112,39 +112,41 @@ export const createTodo = description => ({
 
 ### Dispatching actions when a component mounts
 
-The last thing is that we must dispatch actions from an React component when it initially mounts in order to get the todos created. To do that, we need to make use of React's _lifecycle hooks_.
+The last thing is that we must dispatch actions from an React component when it initially mounts in order to get the todos created. To do that, we need to make use of React's _lifecycle methods_.
 
-React components have various lifecycle hooks. From the React docs:
+React components have various lifecycle methods (see [this diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) for a visual representation). From the React docs:
 
-```
-Mounting
-These methods are called when an instance of a component is being created and inserted into the DOM:
+> ### The Component Lifecycle
+> Each component has several “lifecycle methods” that you can override to run code at particular times in the process. In the list below, commonly used lifecycle methods are marked as **bold**. The rest of them exist for relatively rare use cases.
+>
+> #### Mounting
+>These methods are called in the following order when an instance of a component is being created and inserted into the DOM:
+>
+>- **`constructor()`**
+>- `static getDerivedStateFromProps()`
+>- **`render()`**
+>- **`componentDidMount()`**
+> #### Updating
+> An update can be caused by changes to props or state. These methods are called in the following order when a component is being re-rendered:
+>
+>- `static getDerivedStateFromProps()`
+>- `shouldComponentUpdate()`
+>- **`render()`**
+>- `getSnapshotBeforeUpdate()`
+>- **`componentDidUpdate()`**
+>
+>#### Unmounting
+>This method is called when a component is being removed from the DOM:
+>
+>- **`componentWillUnmount()`**
 
-constructor(props)
-componentWillMount()
-render()
-componentDidMount()
-
-Updating
-An update can be caused by changes to props or state. These methods are called when a component is being re-rendered:
-
-componentWillReceiveProps(nextProps)
-shouldComponentUpdate(nextProps, nextState)
-componentWillUpdate(nextProps, nextState)
-render()
-componentDidUpdate(prevProps, prevState)
-
-Unmounting
-This method is called when a component is being removed from the DOM:
-
-componentWillUnmount()
-```
-
-The most used hook is `componentDidMount`. Dispatching actions from this method is the recommended way to fetch initial data and do whatever else is needed to get the component up and running.
+The most used lifecycle method is `componentDidMount`. Dispatching actions from this method is the recommended way to fetch initial data and do whatever else is needed to get the component up and running.
 
 Remember that we want _stuff related to how things work_ in Container-components and _stuff related to how things looks_ in plain, dumb, Component-components. That means we want to implement `componentDidMount` in `TodoListContainer`.
 
 Lifecyle methods can only be implemented in React class components and not in pure components (because a pure component is just a plain function which cannot have additional functions (well functions _can_ have additional functions on them in JavaScript, but thats beside the point - in React context we must use a class component)).
+
+> :bulb: At the time of writing, a [feature proposal called _Hooks_](https://reactjs.org/docs/hooks-intro.html) is being considered for inclusion in React. _Hooks_ will enable you to use React's state and lifecycle features in components  _without writing a class_.
 
 :pencil2: Refactor `TodoListContainer` to be a React class component instead of a pure component:
 
@@ -153,10 +155,6 @@ import React, { Component } from "react";
 import TodoList from "./TodoList";
 
 class TodoListContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {}
 
   render() {
@@ -197,10 +195,6 @@ import { createTodo } from "./todoActions";
 import Todo from "./Todo";
 
 class TodoListContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.createTodoItem("Wake up");
     this.props.createTodoItem("Do the dishes");
