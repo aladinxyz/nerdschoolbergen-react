@@ -403,7 +403,7 @@ Before moving on, let's do some css cleanup to make it look more like our wirefr
 :pencil2: Rename `App.css` to `app.css`.  
 :pencil2: Rename `App.test.js` to `App.test.jsx`.  
 :pencil2: In the `App` component, import the css file at the top, similar to how we did it in `Summary`.  
-:pencil2: In `app.css`, remove all of it content and add the following:
+:pencil2: In `app.css`, remove all of its content and add the following:
 
 ```css
 .app {
