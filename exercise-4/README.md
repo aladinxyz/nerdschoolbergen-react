@@ -7,7 +7,7 @@
 - The difference between _Container_ components that contains wiring and logic, and just plain _Components_ that just render DOM elements to the screen.
 - How to map redux _state_ and _actions_ to React component props.
 - Implement a Redux reducer and an action.
-- Basics of Redux dev tools. 
+- Basics of Redux dev tools.
 
 ## Reminder: Todo app spec
 
@@ -59,16 +59,16 @@ Let's say we have an _Add_-button to add a new todo item. Adding this new todo i
 
 ```js
 const addTodo = description => ({
-  type: 'ADD_TODO',
-  description,
+  type: "ADD_TODO",
+  description
 });
 
 // Identical to:
 
 function addTodo(description) {
   return {
-    type: 'ADD_TODO',
-    description: description,
+    type: "ADD_TODO",
+    description: description
   };
 }
 ```
@@ -79,8 +79,8 @@ function addTodo(description) {
 ```js
 const todosReducer = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_TODO':
-      return /* new state based on the received action */
+    case "ADD_TODO":
+      return; /* new state based on the received action */
     default:
       return state;
   }
@@ -126,26 +126,26 @@ Using our todo app as the example, we would glue the pieces together like this:
 > Again, just read along for now, we'll implement this properly later.
 
 ```jsx
-import React from 'react';
-import { connect } from 'react-redux';
-import TodoList from './TodoList';
-import { deleteTodo } from './todoActions';
+import React from "react";
+import { connect } from "react-redux";
+import TodoList from "./TodoList";
+import { deleteTodo } from "./todoActions";
 
 const TodoListContainer = props => (
   <TodoList todoItems={props.todoItems} onDeleteTodo={props.onDeleteTodo} />
 );
 
 const mapStateToProps = state => ({
-  todoItems: state.todos,
+  todoItems: state.todos
 });
 
 const mapDispatchToProps = dispatch => ({
-  onDeleteTodo: todoId => dispatch(deleteTodo(todoId)),
+  onDeleteTodo: todoId => dispatch(deleteTodo(todoId))
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(TodoListContainer);
 ```
 
@@ -185,9 +185,7 @@ Because _Containers_ just passes props on to it's sibling _Component_, we can ju
 ```jsx
 /* ... */
 
-const TodoListContainer = props => (
-  <TodoList {...props} />
-);
+const TodoListContainer = props => <TodoList {...props} />;
 
 /* ... */
 ```
@@ -198,7 +196,7 @@ This way we don't have to specify PropTypes validation, and we reduce boilerplat
 
 `create-react-app` does not include Redux by default so we'll need to install it.
 
-:pencil2: Stop the web server running the todo app and install `redux`, `react-redux` and `redux-thunk`: 
+:pencil2: Stop the web server running the todo app and install `redux`, `react-redux` and `redux-thunk`:
 
 ```bash
 $ npm install redux react-redux redux-thunk
@@ -211,18 +209,18 @@ $ npm install redux react-redux redux-thunk
 :pencil2: Create the new file `reduxStore.js` and copy & paste the following content:
 
 ```js
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './rootReducer';
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from "./rootReducer";
 
 const initialState = {};
 const enhancers = [];
 
 // If we're in development, enable the 'Redux dev tools' browser extension
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   const devToolsExtension = window.devToolsExtension;
 
-  if (typeof devToolsExtension === 'function') {
+  if (typeof devToolsExtension === "function") {
     enhancers.push(devToolsExtension());
   }
 }
@@ -230,15 +228,11 @@ if (process.env.NODE_ENV === 'development') {
 // Create and pass in all middleware we'll use. In our case, only 'redux-thunk'.
 const composedEnhancers = compose(
   applyMiddleware(thunk),
-  ...enhancers,
+  ...enhancers
 );
 
 // Create the Redux store
-const store = createStore(
-  rootReducer,
-  initialState,
-  composedEnhancers,
-);
+const store = createStore(rootReducer, initialState, composedEnhancers);
 
 export default store;
 ```
@@ -248,11 +242,11 @@ export default store;
 :pencil2: Create the new file `rootReducer.js` and enter the following content:
 
 ```js
-import { combineReducers } from 'redux'
-import todosReducer from './todosReducer';
+import { combineReducers } from "redux";
+import todosReducer from "./todosReducer";
 
 export default combineReducers({
-  todos: todosReducer,
+  todos: todosReducer
 });
 ```
 
@@ -278,30 +272,30 @@ The last piece is to initialize Redux when the app starts (i.e. make sure the `c
 :pencil2: Open `index.js` and change its content to:
 
 ```js
-import './index.css';
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './reduxStore';
-import App from './App';
+import "./index.css";
+import React from "react";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
+import store from "./reduxStore";
+import App from "./App";
 
 render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 ```
 
 Importing `store` from `reduxStore` and using the `Provider`-component are the magic tricks here. Provider is the main entry point for connecting Redux with React.
 
-:pencil2: Start the dev server again using `npm start`. Open the browser. There should be no warnings or errors in the browser console.  
+:pencil2: Start the dev server again using `npm start`. Open the browser. There should be no warnings or errors in the browser console.
 
 ### Redux dev tools
 
 In exercise 1 we installed the browser extension _Redux dev tools_. Let's see what it can do.
 
-:pencil2: Open the browser dev tools (<kbd>F12</kbd>) and find the `Redux`-tab.  
+:pencil2: Open the browser dev tools (<kbd>F12</kbd>) and find the `Redux`-tab.
 
 A rather complex-looking window should appear. If it says something like "Could not find local Redux store", something is wrong with your setup and you should contact an instructor. Most likely, something is wrong in `reduxStore.js`.
 
@@ -309,7 +303,7 @@ A rather complex-looking window should appear. If it says something like "Could 
 
 The left-side panel (red) is a list of all actions that has been dispatched to the store. We'll explore this is in more detail when we implement actions.
 
-The right-side panel (blue) displays the state. At the moment we have just defined an empty list of `todos` (remember, in `todosReducer`, we set the default reducer state to an empty array: `todos = []`, and in `rootReducer` we mapped the `todos`-property to the `todosReducer`, thus creating the _node in the state tree_ `todos: []`). Note the `Tree`, `Char`, and `Raw` tabs. We'll just use the `Tree`-view, but others may be interesting with big applications.
+The right-side panel (blue) displays the state. At the moment we have just defined an empty list of `todos` (remember, in `todosReducer`, we set the default reducer state to an empty array: `todos = []`, and in `rootReducer` we mapped the `todos`-property to the `todosReducer`, thus creating the _node in the state tree_ `todos: []`). Note the `Tree`, `Chart`, and `Raw` tabs. We'll just use the `Tree`-view, but others may be interesting with big applications.
 
 The top-right button group (green) toggles between viewing the details of an action (that you select in the left-hand list), showing the state-tree (current, and default view), and inspecting the diff between the old and new state caused by an action.
 

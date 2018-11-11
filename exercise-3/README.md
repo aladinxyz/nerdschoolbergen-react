@@ -45,7 +45,7 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 
 :pencil2: Open `App.js` and remove all of its content.  
 :pencil2: All React components must import React in order to run, so start by adding the line `import React from 'react'`.  
-:pencil2: Let's assume we only need App as a pure component and add the following:  
+:pencil2: Let's assume we only need App as a pure component and add the following:
 
 ```jsx
 const App = () => (
@@ -64,7 +64,7 @@ The header should now render to the screen.
 For reference, here's the `App.js` file at this point:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 const App = () => (
   <div>
@@ -82,7 +82,7 @@ Next, let's start on the list itself. For now, we'll work with dummy data.
 This is the component that will print out how many tasks we have registered and how many of those are completed. Here we'll obviously need some data, but at this stage we'll make the basic structure of the component and provide some dummy data. We'll switch to real data in a later exercise.
 
 :pencil2: For simplicity, start by copying all content in `App.js` and make a new file `Summary.jsx` and paste the content in.  
-:pencil2: Change the name of the component inside of `Summary.jsx` from _App_ to _Summary_.  
+:pencil2: Change the name of the component inside of `Summary.jsx` from _App_ to _Summary_.
 
 Now we need to decide what props we need. We have to options:
 
@@ -115,19 +115,19 @@ const Summary = ({ todosCount, completedTodosCount }) => (
 
 There's a few things going on here:
 
-- We added some class names which we haven't defined yet. We'll use the [BEM](http://getbem.com/naming/) naming convention for SASS classes here. We won't cover this in detail, but feel free to read up on it - it'll take you 3 minutes.
+- We added some class names which we haven't defined yet. We'll use the [BEM](http://getbem.com/naming/) naming convention for SASS classes here. We won't cover BEM in detail, but feel free to read up on it - it'll take you 3 minutes.
 - We used a fancy syntax to write text to the screen. The backticks-dollar-curly thing is the (relative) new JavaScript [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) feature. We wrap it in another set of curly brackets because this is plain JavaScript and not JSX and as discussed in exercise 2, we use curly brackets inside JSX evertime we want to write JavaScript inline.
 
 :pencil2: To finish of the Summary component for now, we need to add prop type validation to our props:
 
 ```jsx
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 /* Summary component here */
 
 Summary.propTypes = {
   todosCount: PropTypes.number.isRequired,
-  completedTodosCount: PropTypes.number.isRequired,
+  completedTodosCount: PropTypes.number.isRequired
 };
 
 /* export component here */
@@ -136,7 +136,7 @@ Summary.propTypes = {
 :pencil2: Go back to App.js and _import_ and use the new `Summary` component:
 
 ```jsx
-import Summary from './Summary';
+import Summary from "./Summary";
 
 const App = () => (
   <div>
@@ -153,7 +153,7 @@ One of the cool things about React is how isolated we can make our components. F
 We'll use plain CSS today for simplicity.
 
 > :bulb: To learn more about setting up Sass, see the [Adding a Sass Stylesheet
-](https://facebook.github.io/create-react-app/docs/adding-a-sass-stylesheet) section of the `create-react-app` documentation.
+> ](https://facebook.github.io/create-react-app/docs/adding-a-sass-stylesheet) section of the `create-react-app` documentation.
 
 :pencil2: Add the new CSS file `summary.css`.  
 :pencil2: Define the two classes:
@@ -171,7 +171,7 @@ We'll use plain CSS today for simplicity.
 :pencil2: Import the stylesheet into the Summary component:
 
 ```jsx
-import './summary.css';
+import "./summary.css";
 ```
 
 The styling should now take effect in the browser. The cool thing now is that styling and all other internal details of the Summary component is isolated to that component, and we are left with a clean, clearly defined interface that consumers of this component will implement: `<Summary todosCount={/* required number */} completedTodosCount={/* required number */} />`.
@@ -181,7 +181,7 @@ The styling should now take effect in the browser. The cool thing now is that st
 :pencil2: Again, start by copying all content in `App.js` and make a new file `TodoList.jsx` and paste the content in.  
 :pencil2: Change the name of the component inside of `TodoList.jsx` from _App_ to _TodoList_.  
 :pencil2: Remove all other imports than `import React from 'react'`.
-:pencil2: We know we'll need a list of todo items, so change the `TodoList` function to take in a `todoItems` props, using the _destruct_ syntax:  
+:pencil2: We know we'll need a list of todo items, so change the `TodoList` function to take in a `todoItems` props, using the _destruct_ syntax:
 
 ```jsx
 const TodoList = ({ todoItems }) => (
@@ -206,15 +206,15 @@ const TodoList = ({ todoItems }) => (
 We'll worry about what to do with `todoItem` in a bit.
 
 :pencil2: The `TodoItem` component is not defined in this file yet, so add an import at the top: `import TodoItem from './TodoItem'`.  
-:pencil2: While we're here, add the import-statement `import PropTypes from 'prop-types'` aswell.  
+:pencil2: While we're here, add the import-statement `import PropTypes from 'prop-types'` aswell.
 
 Next, we need to add `todoItems` to prop types.
 
-:pencil2: After the TodoList component, add this block:  
+:pencil2: After the TodoList component, add this block:
 
 ```jsx
 TodoList.propTypes = {
-  todoItems: PropTypes.arrayOf(PropTypes.instanceOf(Todo)),
+  todoItems: PropTypes.arrayOf(PropTypes.instanceOf(Todo))
 };
 ```
 
@@ -226,7 +226,7 @@ As you might've noticed, we didn't specify `.isRequired` at the end of the prop 
 
 ```jsx
 TodoList.defaultProps = {
-  todoItems: [],
+  todoItems: []
 };
 ```
 
@@ -251,10 +251,10 @@ export default Todo;
 The content in `TodoList.js` should now look like this:
 
 ```jsx
-import React from 'react';
-import PropTypes from 'prop-types';
-import TodoItem from './TodoItem';
-import Todo from './Todo';
+import React from "react";
+import PropTypes from "prop-types";
+import TodoItem from "./TodoItem";
+import Todo from "./Todo";
 
 const TodoList = ({ todoItems }) => (
   <div>
@@ -265,11 +265,11 @@ const TodoList = ({ todoItems }) => (
 );
 
 TodoList.defaultProps = {
-  todoItems: [],
+  todoItems: []
 };
 
 TodoList.propTypes = {
-  todoItems: PropTypes.arrayOf(PropTypes.instanceOf(Todo)),
+  todoItems: PropTypes.arrayOf(PropTypes.instanceOf(Todo))
 };
 
 export default TodoList;
@@ -280,8 +280,8 @@ Before we can use this component we need to implement the `TodoItem` component.
 :pencil2: Create the file `TodoItem.jsx` and write out the following content:
 
 ```jsx
-import React from 'react';
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 const TodoItem = ({ description }) => (
   <div>
@@ -291,7 +291,7 @@ const TodoItem = ({ description }) => (
 );
 
 TodoItem.propTypes = {
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
 };
 
 export default TodoItem;
@@ -300,28 +300,29 @@ export default TodoItem;
 :pencil2: Back in `TodoList`, make sure to send in `description`:
 
 ```jsx
-{todoItems.map(todoItem => (
-  <TodoItem description={todoItem.description} />
-))}
+{
+  todoItems.map(todoItem => <TodoItem description={todoItem.description} />);
+}
 ```
 
 :pencil2: Then in `App.js`, _import_ and use the `TodoList` component, using some mockdata for now:
 
 ```jsx
-import React from 'react';
-import Summary from './Summary';
-import TodoList from './TodoList';
-import Todo from './Todo';
+import React from "react";
+import Summary from "./Summary";
+import TodoList from "./TodoList";
+import Todo from "./Todo";
 
 const App = () => (
   <div>
     <h1>My Todo App</h1>
     <Summary todosCount={5} completedTodosCount={3} />
-    <TodoList todoItems={[
-        new Todo(1, 'Wake up'),
-        new Todo(2, 'Do the dishes'),
-        new Todo(3, 'Fold clothes'),
-        new Todo(4, 'Browse Reddit')
+    <TodoList
+      todoItems={[
+        new Todo(1, "Wake up"),
+        new Todo(2, "Do the dishes"),
+        new Todo(3, "Fold clothes"),
+        new Todo(4, "Browse Reddit")
       ]}
     />
   </div>
@@ -334,16 +335,18 @@ export default App;
 
 Unfortunately, there are some bugs we need to squash.
 
-:pencil2: Open the developer console (<kbd>F12</kbd> -> `Console` tab). There should be an error saying `Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of TodoList` (might need to refresh window).  
+:pencil2: Open the developer console (<kbd>F12</kbd> -> `Console` tab). There should be an error saying `Warning: Each child in an array or iterator should have a unique "key" prop. Check the render method of TodoList` (might need to refresh window).
 
 The problem is on this line in `TodoList.jsx`: `<TodoItem description={todoItem.description} />`. React uses a special prop named `key` when trying to assert if the component needs to be updated or switched out for each render cycle in its runtime. The root element in each loop/map/list in JSX must therefore have a unique `key` prop. Luckily, our `todoItem` instances already have an `id` property we can use.
 
 :pencil2: Add the `key`-prop, using the `todoItem.id` value:
 
 ```jsx
-{todoItems.map(todoItem => (
-  <TodoItem key={todoItem.id} description={todoItem.description} />
-))}
+{
+  todoItems.map(todoItem => (
+    <TodoItem key={todoItem.id} description={todoItem.description} />
+  ));
+}
 ```
 
 :pencil2: Head back to the browser. There should be no warnings or errors in the console now. :tada:
@@ -375,9 +378,15 @@ TodoItem.propTypes = {
 :pencil2: Now we must also pass in the `id` prop in `TodoList`:
 
 ```jsx
-{todoItems.map(todoItem => (
-  <TodoItem key={todoItem.id} id={todoItem.id} description={todoItem.description} />
-))}
+{
+  todoItems.map(todoItem => (
+    <TodoItem
+      key={todoItem.id}
+      id={todoItem.id}
+      description={todoItem.description}
+    />
+  ));
+}
 ```
 
 :pencil2: Checking and unchecking the boxes in the browser should now work as expected :ok_hand:
@@ -409,7 +418,7 @@ Before moving on, let's do some css cleanup to make it look more like our wirefr
 .app {
   width: 350px;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   right: 0;
   margin: auto;

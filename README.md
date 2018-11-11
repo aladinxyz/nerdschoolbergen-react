@@ -12,7 +12,7 @@ Time estimate: 4-6 hours
 
 ## Intended audience
 
-Compared to other Nerdschool workshops, this one is considerably more advanced. 
+Compared to other Nerdschool workshops, this one is considerably more advanced.
 
 Since React - and the other libraries we'll use - are libraries for JavaScript, there is an expectation that you have a fair understanding of:
 
@@ -24,8 +24,8 @@ Since React - and the other libraries we'll use - are libraries for JavaScript, 
 - Google Chrome
   - Extension: [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
   - Extension: [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
-- A modern text editor that understands JavaScript and React. For example Atom or Visual Studio Code.
-- [NodeJS and npm](https://nodejs.org/en/) installed on your machine. **You need to have NodeJS 8.10.0 or later (`node -v`) and npm 5.2.0 or later (`npm -v`) installed.**
+- A modern text editor that understands JavaScript and React. We recommend Visual Studio Code but others such as Web Storm and Atom are good choises.
+- [NodeJS and npm](https://nodejs.org/en/) installed on your machine. **You should have the latest LTS release of NodeJS or later, which (when writing this) is 10.13.0 of node and 6.4.1 of npm. Use `node -v` and `npm -v` to check your version.**
 
 ## How to get started
 
@@ -53,7 +53,7 @@ This repository contains a set of exercises organized in folders. Each folder co
 :exclamation: - Something important.  
 :question: - Open-ended question for the reader ("What do you think would happen if...")  
 :poop: - Bad practice (don't-do-this)  
-:star: - A bonus task (not required)  
+:star: - A bonus task (not required)
 
 #### Keyboard keys
 

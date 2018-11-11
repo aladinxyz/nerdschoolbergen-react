@@ -1,6 +1,6 @@
 # Exercise 2 - React Components
 
-:book: Ok, so this "exercise" is a big wall of text. We don't like it anymore than you do, but at some point you got to learn React, right? So take a deep breath and go through everything in order, step by step. (We hired some cats for morale boost!)
+:book: Ok, so this "exercise" is a big wall of text. We don't like it anymore than you do, but at some point you got to get down to it and learn React, right? So take a deep breath and go through everything in order, step by step. Don't worry, theres plenty of coding coming up!
 
 ## In this exercise you will learn about:
 
@@ -56,7 +56,7 @@ const Checkout = props => (
 :book: If the above function syntax looks funny to you, here's a more familiar version of the same:
 
 ```jsx
-function Checkout (props) {
+function Checkout(props) {
   return (
     <div>
       <p>Total sum: {props.totalAmount}</p>
@@ -118,7 +118,7 @@ class Checkout extends Component {
     super(props);
 
     this.state = {
-      count: 0,
+      count: 0
     };
 
     this.incrementCounter = this.incrementCounter.bind(this);
@@ -126,7 +126,7 @@ class Checkout extends Component {
 
   incrementCounter() {
     this.setState({
-      count: this.state.count + 1,
+      count: this.state.count + 1
     });
   }
 
@@ -155,7 +155,7 @@ class Checkout extends Component {
 Let's say you have the following component:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 const Checkout = props => (
   <div>
@@ -171,8 +171,8 @@ As the author of this component, you expect `totalAmount` to be a number. You ca
 Here's the same component with prop types applied:
 
 ```jsx
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const Checkout = props => (
   <div>
@@ -181,7 +181,7 @@ const Checkout = props => (
 );
 
 Checkout.propTypes = {
-  totalAmount: PropTypes.number.isRequired,
+  totalAmount: PropTypes.number.isRequired
 };
 
 export default Checkout;
@@ -244,7 +244,7 @@ const TodoList = ({
   listName,
   maxNrOfItems,
   onItemAdded,
-  onItemDeleted,
+  onItemDeleted
 }) => (
   <div>
     <h1>{listName}</h1>
@@ -282,12 +282,8 @@ const TodoList = props => (
 ```jsx
 const Checkout = props => (
   <div>
-    {props.isOlderThanMinAgeLimit &&
-      <p>You may buy this product</p>
-    }
-    {!props.isOlderThanMinAgeLimit &&
-      <p>You may NOT buy this product</p>
-    }
+    {props.isOlderThanMinAgeLimit && <p>You may buy this product</p>}
+    {!props.isOlderThanMinAgeLimit && <p>You may NOT buy this product</p>}
   </div>
 );
 ```
@@ -296,15 +292,13 @@ Or like this:
 
 ```jsx
 const Checkout = props => {
-  const message = props.isOlderThanMinAgeLimit
-    ? <p>You may buy this product</p>
-    : <p>You may NOT buy this product</p>;
-
-  return (
-    <div>
-      {message}
-    </div>
+  const message = props.isOlderThanMinAgeLimit ? (
+    <p>You may buy this product</p>
+  ) : (
+    <p>You may NOT buy this product</p>
   );
+
+  return <div>{message}</div>;
 };
 ```
 
