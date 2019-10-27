@@ -40,8 +40,9 @@ This repository contains a set of exercises organized in folders. Each folder co
 - [Exercise 2 - React components](exercise-2/)
 - [Exercise 3 - React](exercise-3/)
 - [Exercise 4 - Redux](exercise-4/)
-- [Exercise 5 - Using Redux](exercise-5/)
-- [Exercise 6 - Completing the app](exercise-6/)
+- [Bonus 1 - Redux](exercise-5/)
+- [Bonus 2 - Using Redux](exercise-6/)
+- [Bonus 3 - Completing the app](exercise-6/)
 
 ### Symbols and notation used in exercises
 
