@@ -2,7 +2,7 @@
 
 This workshop will give a whirlwind tour of React and Redux, demonstrating the core principles and providing a platform to build on.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1yOMgG0OLOl5zoohqOl4E-NfpqFA9LdrA2r8eJPyNqGs/edit?usp=sharing)
+## [Open presentation slides](https://docs.google.com/presentation/d/1qI0qJT2Spqv5rFRH67ynsvJjOHCYYzryJCJaq67pHJw)
 
 ## Focus of this workshop
 
