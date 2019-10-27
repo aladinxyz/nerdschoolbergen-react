@@ -1,4 +1,4 @@
-# Exercise 6 - Using Redux in our Todo app
+# Bonus exercise 2 - Using Redux in our Todo app
 
 ## In this exercise you will learn to:
 
@@ -7,41 +7,11 @@
 - Implement a React lifecycle method.
 - Dispatch actions for creating initial todo items in the lifecycle method `componentDidMount`.
 
-## Reminder: Todo app spec
+## 6.1 - Moving the initial Todo list to Redux
 
-Here's the spec for our todo app as discussed in the previous exercise, for reference.
+At the moment we have a list of todos in our component state in `App.jsx`. The goal now is that Redux will own all state and operations that mutate that state in the application, primarily the list of todos.
 
-![](../images/todo-app.png)
-
-### Header
-
-- There will be an `h1` header for the name of this glorious app
-- There will be a sub-header with slightly emphasized text stating how many total tasks there are and how many of those are completed.
-
-### Adding a task
-
-- There will be a textbox where a user can enter the description of a task
-- There will be an "Add" button which will add the task to the list of existing tasks/todos.
-
-### Listing todos
-
-- There will be a list of todo items. Each todo item will consist of:
-  - A checkbox with the description of the todo
-  - An delete button which will remove the todo item permanently
-
-![](../images/todo-app-components.png)
-
-1.  `App`. Will contain the header text and the sub-components.
-1.  `Summary`. Will contain the total number of tasks and show how many of those are completed.
-1.  `AddTodo`. Will contain the textbox and Add-button.
-1.  `TodoList`. Will contain the list for all todo items.
-1.  `TodoItem`. Will contain a checkbox that marks a task as In Progress or Done, and a Delete button.
-
-## 5.1 - Moving the initial Todo list to Redux
-
-At the moment we create a list of dummy todos in `App.jsx`. The goal now is that Redux will own all state and operations that mutate that state in the application, primarily the list of todos.
-
-:pencil2: The easiest solution for now is to just cut the list from `App.jsx` and paste it in as the default state in `todosReducer`.
+:pencil2: The easiest solution for now is to just cut the list from our component state in `App.jsx` and paste it in as the default state in `todosReducer`.
 
 Now the state exists in Redux but we have yet to connect that state to our React components.
 
@@ -246,4 +216,4 @@ Speaking of dev tools, now that our app has grown a bit, let's give _React dev t
 :pencil2: Open _React dev tools_ in Chrome. Expand the Component Nodes in the main window a bit. Note how you can see each component as it appears in code, with correct props as they appear in code.  
 :pencil2: Find the `TodoList` in the tree and select it. Inspect the right-hand panel and note that you can inspect the props it receives in detail. This is very useful when you just want to inspect all props the component actually receives at runtime, and what values they are.
 
-### [Go to exercise 6 :arrow_right:](../exercise-6/README.md)
+### [Go to bonus exercise 3 :arrow_right:](../exercise-7/README.md)
