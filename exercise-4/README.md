@@ -1,4 +1,4 @@
-# Exercise 4 - State
+# Exercise 4 - Component state
 In the previous exercise, we setup the UI components of our React application - however it does not yet do much. We need some kind of way to handle the state of the application. 
 
 ## In this exercise you will learn:
