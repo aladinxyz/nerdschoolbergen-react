@@ -194,15 +194,17 @@ There are some very useful Chrome extensions when working with React. Having the
 
 > [Download here](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 
-This is like any browser's _Elements_ tab, but for React elements.
+This is like any browser's _Elements_ tab, but for React elements. It essentially adds two new tabs, _Components_ and _Profiler_.
 
-![](../images/react-devtools.png)
+![](../images/react-dev-tools.png)
 
 **Useful things to note:**
 
 :book: The right-hand panel (blue) lists a component's _props_. We haven't discussed this yet, but props are basically the values passed in to a component from it's parent component. This will be useful later.  
-:book: The target icon (green) enables you to point your cursor on an element on the screen which'll expand down to, and select, that React component in the tree.  
-:book: Note that this DOM-tree lists the React nodes as they are named in your source code (pink). This is extremely useful for debugging.
+:book: The arrow icon (green) enables you to point your cursor on an element on the screen which'll expand down to, and select, that React component in the tree.  
+:book: Note that this tree lists the React nodes as they are named in your source code (pink). This is extremely useful for debugging.
+:exclamation: It may happen that the component list dissapears when the hot-reloading occurs. If so, refresh the page and it will appear again.
+:exclamation: If only the *App* component is visible, open the addon options (the cog icon, yellow) and turn off the filtering in the *Components* tab.
 
 ### Redux Dev Tools
 
