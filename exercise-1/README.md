@@ -206,10 +206,5 @@ This is like any browser's _Elements_ tab, but for React elements. It essentiall
 :exclamation: It may happen that the component list dissapears when the hot-reloading occurs. If so, refresh the page and it will appear again.
 :exclamation: If only the *App* component is visible, open the addon options (the cog icon, yellow) and turn off the filtering in the *Components* tab.
 
-### Redux Dev Tools
-
-> [Download here](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
-
-We'll discuss this in later exercises. Just install it now :)
 
 ### [Go to exercise 2 :arrow_right:](../exercise-2/README.md)

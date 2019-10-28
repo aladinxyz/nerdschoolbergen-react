@@ -263,7 +263,8 @@ Importing `store` from `reduxStore` and using the `Provider`-component are the m
 
 ### Redux dev tools
 
-In exercise 1 we installed the browser extension _Redux dev tools_. Let's see what it can do.
+:pencil2: Download and setup redux dev tools 
+> [Download here](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
 :pencil2: Open the browser dev tools (<kbd>F12</kbd>) and find the `Redux`-tab.
 
