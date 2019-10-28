@@ -35,9 +35,9 @@ Here's the spec for our todo app as discussed in the previous exercise, for refe
 1. `TodoList`. Will contain the list for all todo items.
 1. `TodoItem`. Will contain a checkbox that marks a task as In Progress or Done, and a Delete button.
 
-## Don't cheat
+## Typing it out
 
-:exclamation: Now that we're about to dive into the code, please remember that it's always better to write the code yourself. Please do not copy & paste from the code examples in this text, write everything out manually.
+:book: Now that we're about to dive into the code, please remember that it's always better to write the code yourself - get that coding into your fingertips!
 
 ## 3.1 - The `App` component
 
@@ -54,6 +54,7 @@ const App = () => (
   </div>
 );
 ```
+
 
 > :bulb: Unless we know for sure we'll need lifecycle methods, we tend to start new components as pure components and convert to class component if it turns out we need more complexity.
 
