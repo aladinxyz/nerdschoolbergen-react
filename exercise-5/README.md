@@ -144,9 +144,9 @@ The most used lifecycle method is `componentDidMount`. Dispatching actions from 
 
 Remember that we want _stuff related to how things work_ in Container-components and _stuff related to how things looks_ in plain, dumb, Component-components. That means we want to implement `componentDidMount` in `TodoListContainer`.
 
-Lifecyle methods can only be implemented in React class components and not in pure components (because a pure component is just a plain function which cannot have additional functions (well functions _can_ have additional functions on them in JavaScript, but thats beside the point - in React context we must use a class component)).
+Lifecyle methods can only be implemented in React class components and not in pure components (because a pure component is just a plain function which cannot have additional functions.
 
-> :bulb: At the time of writing, a [feature proposal called _Hooks_](https://reactjs.org/docs/hooks-intro.html) is being considered for inclusion in React. _Hooks_ will enable you to use React's state and lifecycle features in components  _without writing a class_.
+> :bulb: However, never versions of React [have a feature called _Hooks_](https://reactjs.org/docs/hooks-intro.html). _Hooks_ will enable you to use React's state and lifecycle features in components  _without writing a class_. This feature is beyond the scope of this workshop, but may be covered in the future.
 
 :pencil2: Refactor `TodoListContainer` to be a React class component instead of a pure component:
 
@@ -241,7 +241,7 @@ Pretty powerful debugging tools and extremely useful for understanding how state
 
 Speaking of dev tools, now that our app has grown a bit, let's give _React dev tools_ another try.
 
-![](../images/react-devtools02.png)
+![](../images/exercise5.png)
 
 :pencil2: Open _React dev tools_ in Chrome. Expand the Component Nodes in the main window a bit. Note how you can see each component as it appears in code, with correct props as they appear in code.  
 :pencil2: Find the `TodoList` in the tree and select it. Inspect the right-hand panel and note that you can inspect the props it receives in detail. This is very useful when you just want to inspect all props the component actually receives at runtime, and what values they are.
