@@ -277,7 +277,11 @@ The right-side panel (blue) displays the state. At the moment we have just defin
 
 The top-right button group (green) toggles between viewing the details of an action (that you select in the left-hand list), showing the state-tree (current, and default view), and inspecting the diff between the old and new state caused by an action.
 
+<<<<<<< HEAD
 The buttons at the bottom are for special and advanced use cases and can be safely ignored for now.
+=======
+![](../images/exercise5.png)
+>>>>>>> master
 
 We'll explore this extension more as we go along. For now, let's get on with our app.
 

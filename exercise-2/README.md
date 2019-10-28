@@ -145,6 +145,7 @@ class Checkout extends Component {
 - Note there is some boilerplate ceremony necessary in the constructor now.
 - The initial `count` state is set in the constructor.
 - We are only ever allowed to change the state by using React's `this.setState(newState)` method. If we did another `this.state = { count: this.state + 1 }` in the `incrementCounter` method we'd get an error.
+- We *bind* the *incrementCounter* method to the instance of the component (*this*), so that *this* will point to the correct object (see [_Passing functions to components_](https://reactjs.org/docs/faq-functions.html))
 - In the `render()` method we access the `count` value by using `this.state.count`.
 - We hook the button up to our `incrementCounter` method when it's clicked.
 
@@ -222,7 +223,7 @@ Oh by the way - here's you, writing React code on the next exercise!
 
 #### Destructuring props
 
-As a footnote before moving on, we typically [_destruct_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) the `props` object to avoid having to write `props.blah`. It just reads cleaner and gives less boilerplate code.
+As a footnote before moving on, we typically [_destructure_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) the `props` object to avoid having to write `props.blah`. It just reads cleaner and gives less boilerplate code.
 
 So instead of:
 
@@ -264,7 +265,7 @@ const TodoList = ({
 
 :book: We'll touch on more JSX goodies as we go along, but here's a few things you'll need to know:
 
-- We can write plain JavaScript by wrapping it in `{ }` inside of any jsx code block. We use this quite frequently to do conditional checks and write data to the screen.
+- We can write plain JavaScript by wrapping it in `{ }` inside of any jsx code block. We use this quite frequently to do conditional checks and write data to the screen. What this block accepts is a _javascript expression_, not statements.
 - We iterate over lists like this:
 
 ```jsx
@@ -302,7 +303,7 @@ const Checkout = props => {
 };
 ```
 
-This syntax might look... _different_ (~~cough cough ugly cough cough~~) but as you get used to reading it, you'll discover it's actually quite declarative and easy to reason about. It may not be pretty, but it's quite expressive.
+As some of you may know, this is called a _ternary operator_. This syntax might look... _different_ (~~cough cough ugly cough cough~~) but as you get used to reading it, you'll discover it's actually quite declarative and easy to reason about. It may not be pretty, but it's quite expressive.
 
 ## 2.2 - Let's make a thing!
 
@@ -341,10 +342,10 @@ Like most developers, we want to create this app with as little effort as possib
 (No need to create all components right now, we'll get to that).
 
 1. `App`. Will contain the header text and the sub-components. Represents the _root component_ of our app.
-1. `Summary`. Will contain the total number of tasks and show how many of those are completed.
-1. `AddTodo`. Will contain the textbox and Add-button.
-1. `TodoList`. Will contain the list for all todo items.
-1. `TodoItem`. Will contain a checkbox that marks a task as In Progress or Done, and a Delete button.
+2. `Summary`. Will contain the total number of tasks and show how many of those are completed.
+3. `AddTodo`. Will contain the textbox and Add-button.
+4. `TodoList`. Will contain the list for all todo items.
+5. `TodoItem`. Will contain a checkbox that marks a task as In Progress or Done, and a Delete button.
 
 Each component will be in separate files with a `.jsx` extension. I.e. the `AddTodo`-component will be in a file called exactly `AppTodo.jsx`.
 
