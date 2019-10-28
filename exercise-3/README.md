@@ -91,7 +91,7 @@ Now we need to decide what props we need. We have to options:
 
 In this exercise we'll go with option 1 just to get the hang of using more prop and prop types. If you'd rather do option 2, feel free :+1: :+1:
 
-:pencil2: Change the `Summary` function/component to take in the `todosCount` and `completedTodosCount` props, using the _destruct_ syntax:
+:pencil2: Change the `Summary` function/component to take in the `todosCount` and `completedTodosCount` props, using the _destructuring_ syntax:
 
 ```jsx
 const Summary = ({ todosCount, completedTodosCount }) => (
@@ -181,7 +181,7 @@ The styling should now take effect in the browser. The cool thing now is that st
 :pencil2: Again, start by copying all content in `App.js` and make a new file `TodoList.jsx` and paste the content in.  
 :pencil2: Change the name of the component inside of `TodoList.jsx` from _App_ to _TodoList_.  
 :pencil2: Remove all other imports than `import React from 'react'`.
-:pencil2: We know we'll need a list of todo items, so change the `TodoList` function to take in a `todoItems` props, using the _destruct_ syntax:
+:pencil2: We know we'll need a list of todo items, so change the `TodoList` function to take in a `todoItems` props, using the _destructuring_ syntax:
 
 ```jsx
 const TodoList = ({ todoItems }) => (
@@ -351,8 +351,7 @@ The problem is on this line in `TodoList.jsx`: `<TodoItem description={todoItem.
 
 :pencil2: Head back to the browser. There should be no warnings or errors in the console now. :tada:
 
-But wait! If you try to select the todo items by clicking the labels, you'll see that we only ever select the first one. Another bug.
-
+We need to solve a minor issue before we go forward.
 The problem here is in `TodoItem.jsx` regarding the input's `id` and the label's `htmlFor` props. These values must match, which they do, but they're the same values for all inputs and labels in the todo list. We must also make these unique. To solve this, we also need the `todoItem.id` value in this component.
 
 :pencil2: Add the `id` prop and prop type:
@@ -425,7 +424,7 @@ Before moving on, let's do some css cleanup to make it look more like our wirefr
 }
 ```
 
-Apply the `app` class to the outer `<div>` in `App.jsx`.
+Apply the `app` class to the outer `<div>` in `App.jsx`. *Remember*: *class* attribute in HTML - className in JSX.
 
 :pencil2: Run `npm start` again. There should be no warnings or errors in the browser console, and the content should now be centered on the screen.  
 :pencil2: Create `todoItem.css` and add the following:
@@ -440,6 +439,7 @@ Apply the `app` class to the outer `<div>` in `App.jsx`.
 ```
 
 :pencil2: In `TodoItem.jsx`, import the css, similar to `App` and `Summary`.  
+:pencil2: Add the `todo-item__container` class to the top level _div_
 :pencil2: Wrap the label and checkbox in another `<div>`:
 
 ```jsx
